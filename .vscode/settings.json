@@ -1,0 +1,14 @@
+{
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "github.copilot.editor.enableAutoCompletions": false,
+    "github.copilot.inlineSuggest.enable": false,
+    "python.languageServer": "None",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
+}
