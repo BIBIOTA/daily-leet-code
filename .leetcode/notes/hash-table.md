@@ -1,5 +1,22 @@
 # Hash Table
 
+### From: 1. Two Sum (2026-06-24)
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+Approach: 用一個 dict 在遍歷時記錄「已見過的數字 → 索引」，每步計算 `diff = target - num`，若 diff 已在 dict 中即找到答案。
+Key insight: 把「找另一半」轉為 O(1) 查找——不需要兩層迴圈，只需一次遍歷。
+
+```
+index=0, num=2, diff=7 → dict={} → 未找到 → dict={2:0}
+index=1, num=7, diff=2 → dict={2:0} → 找到！→ return [dict[2], 1] = [0,1]
+```
+
+Mistake I made: 用 `defaultdict(list)` 但實際存的是 int（不是 list），語意不符；應直接用 `{}`。另外誤用 `dict.append()` 而非 `dict[key] = value`。
+
+進階：若陣列已排序，可改用 Two Pointers（左右各一），時間仍 O(n)，空間降至 O(1)。
+
+---
+
 ### From: 49. Group Anagrams (2026-06-24)
 
 Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
