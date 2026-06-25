@@ -40,3 +40,22 @@ for c in word:
     count[ord(c) - ord('a')] += 1
 key = tuple(count)
 ```
+
+---
+
+### From: 217. Contains Duplicate (2026-06-25)
+
+Input: `[1, 2, 3, 1]`
+Approach: 將陣列轉成 set 後比較長度——若長度不同代表有重複。
+Key insight: set 只保留唯一值，任何重複都會使 set 長度小於陣列長度。
+
+```
+nums = [1, 2, 3, 1]
+set(nums) = {1, 2, 3} → len 3
+len(nums) = 4
+3 != 4 → True
+```
+
+Mistake I made: (none)
+
+進階：若不能用額外空間（O(1) space），先 sort 再比較相鄰元素，時間升至 O(n log n)。
