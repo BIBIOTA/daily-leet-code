@@ -7,3 +7,4 @@
 | 2026-06-24 | #1 Two Sum | Hash Table | Passed | rung 0 | defaultdict 換成 dict；修正 enumerate 用法；了解已排序陣列可改用 Two Pointers 達 O(1) 空間 |
 | 2026-06-25 | #217 Contains Duplicate | Hash Table | Passed | rung 0 | len(set(nums)) != len(nums)；理解 O(1) space 替代方案需先 sort（O(n log n)） |
 | 2026-06-26 | #121 Best Time to Buy and Sell Stock | Greedy / One Pass | Passed (partial) | rung 2 | float('inf') 初始化最低價；sell 與 last_min_price 獨立更新；space complexity 答錯（O(n) 應為 O(1)） |
+| 2026-06-26 | #53. Maximum Subarray | Greedy / One Pass | Struggled | rung 4 | 初始化用 nums[0] 處理全負數；current 與 best 需獨立更新；max(current+num, num) 是重置的慣用寫法；O(n-1) 應寫為 O(n) |
