@@ -31,3 +31,13 @@ vs. `sorted()` 全排序是 O(n log n)，k 遠小於 n 時 most_common 明顯較
 
 - 找「最高頻的 k 個元素」
 - 需要頻率統計 + 排序取前 k
+
+---
+
+### From: 347. Top K Frequent Elements（2026-06-28 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: 用 dict 手動建頻率表，再用 sorted(freq.items(), key=lambda x: x[1], reverse=True)[:k] 取前 k 名
+Key insight: sorted() 的 key 必須是關鍵字參數；sorted(freq.items()) 排序的是 (key, value) tuple，不是 dict 本身
+
+Mistake I made: 空間複雜度誤答 O(1)——只要建了 dict / Counter 就是 O(n)，因為儲存了所有 unique 元素；sorted() 語法混淆（把 key 當位置參數傳入）
