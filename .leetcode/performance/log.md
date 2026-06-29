@@ -11,3 +11,4 @@
 | 2026-06-28 | #347. Top K Frequent Elements | Hash Table / Heap | Struggled | rung 4 | sorted() 語法錯誤（key 需為關鍵字參數）；空間複雜度誤答 O(1)，應為 O(n)；頻率表邏輯正確 |
 | 2026-06-29 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 10 | 重置條件應為 current+num < num（等價 current < 0）；elif 分支為 dead code；靠 /run 試錯 10 次才找到正確邏輯 |
 | 2026-06-29 | #49. Group Anagrams | Hash Table | Passed (partial) | rung 3 | return 語法混淆（多餘的 []）；時間複雜度誤答 O(n)，應為 O(n·k log k) |
+| 2026-06-29 | #1. Two Sum | Hash Table | Struggled | rung 0 | `result.keys()` 多餘（直接 `if diff in result` 即可）；`else` 分支可刪；code quality partial；正確識別 sorted array 可改用 Two Pointers 省至 O(1) 空間 |

@@ -69,3 +69,18 @@ Approach: 用 `defaultdict(list)`，對每個字串 `tuple(sorted(word))` 作為
 Key insight: 互為字母異位詞的字串，排序後字元 tuple 完全相同，可作為 hash map 的 key。時間複雜度是 O(n·k log k)，若要降至 O(n·k) 可改用長度 26 的字母頻率陣列當 key。
 
 Mistake I made: `return [anagrams_dict.values()]` 和 `return [list(...)]` 都多包了一層 `[]`，正確寫法是 `return list(anagrams_dict.values())`。時間複雜度誤答 O(n)，忽略了 `sorted(word)` 的 O(k log k) 成本。
+
+---
+
+### From: 1. Two Sum — Review (2026-06-29)
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+Approach: 用 dict 記錄「已遍歷的數字 → 索引」，每步計算 `diff = target - num`，若 diff 在 dict 中即回傳兩索引。
+Key insight: 一次遍歷＋O(1) 查找取代兩層迴圈，時間 O(n)、空間 O(n)。
+
+```
+index=0, num=2, diff=7 → {} → 未找到 → {2:0}
+index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
+```
+
+Mistake I made: `if diff in result.keys()` 多餘，Python 3 直接 `if diff in result` 即可；`else` 分支可刪（if 內已 return）。進階：陣列已排序時改用 Two Pointers，空間降至 O(1)。
