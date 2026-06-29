@@ -59,3 +59,13 @@ len(nums) = 4
 Mistake I made: (none)
 
 進階：若不能用額外空間（O(1) space），先 sort 再比較相鄰元素，時間升至 O(n log n)。
+
+---
+
+### From: 49. Group Anagrams — Review (2026-06-29)
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: 用 `defaultdict(list)`，對每個字串 `tuple(sorted(word))` 作為 key，把同 key 的字串 append 在一起，最後 `return list(anagrams_dict.values())`。
+Key insight: 互為字母異位詞的字串，排序後字元 tuple 完全相同，可作為 hash map 的 key。時間複雜度是 O(n·k log k)，若要降至 O(n·k) 可改用長度 26 的字母頻率陣列當 key。
+
+Mistake I made: `return [anagrams_dict.values()]` 和 `return [list(...)]` 都多包了一層 `[]`，正確寫法是 `return list(anagrams_dict.values())`。時間複雜度誤答 O(n)，忽略了 `sorted(word)` 的 O(k log k) 成本。

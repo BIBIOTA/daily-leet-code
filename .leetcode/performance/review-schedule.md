@@ -12,8 +12,8 @@
 - pattern: Hash Table
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-06-24
-- due_date: 2026-06-25
+- last_reviewed: 2026-06-29
+- due_date: 2026-06-30
 - consecutive_passes: 0
 
 ## 1. Two Sum
