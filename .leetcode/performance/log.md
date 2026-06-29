@@ -13,3 +13,4 @@
 | 2026-06-29 | #49. Group Anagrams | Hash Table | Passed (partial) | rung 3 | return 語法混淆（多餘的 []）；時間複雜度誤答 O(n)，應為 O(n·k log k) |
 | 2026-06-29 | #1. Two Sum | Hash Table | Struggled | rung 0 | `result.keys()` 多餘（直接 `if diff in result` 即可）；`else` 分支可刪；code quality partial；正確識別 sorted array 可改用 Two Pointers 省至 O(1) 空間 |
 | 2026-06-29 | #217 Contains Duplicate | Hash Table | Struggled | rung 0 | 空間複雜度誤答 O(1)，應為 O(n)；set() 建立最多 n 個元素的額外空間 |
+| 2026-06-29 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed (partial) | rung 1 | 多餘的 max_price 追蹤造成條件/賦值不一致；移除後簡化為 min_price + price - min_price 直接計算；初始化拼寫 price[0] 應為 prices[0] |

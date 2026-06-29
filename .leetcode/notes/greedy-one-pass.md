@@ -22,6 +22,27 @@ Mistake I made:
 
 ---
 
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-06-29)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，只追蹤「到目前為止的最低價（min_price）」；每步直接計算 `price - min_price`，與當前最大利潤比較並更新。
+Key insight: 不需要 max_price——對每個潛在賣出價，最佳買入點就是它之前的最低價，直接用 `price - min_price` 就能算出當天賣出的最大利潤。
+
+```
+price=7: min=7, profit=0
+price=1: min=1, profit=0   ← 更新最低價
+price=5: min=1, profit=4   ← 5-1=4
+price=3: min=1, profit=4   ← 3-1=2 < 4，不更新
+price=6: min=1, profit=5   ← 6-1=5 ✅
+price=4: min=1, profit=5   ← 4-1=3 < 5，不更新
+```
+
+Mistake I made:
+- 多追蹤 `max_price` → 條件用 `price - min_price` 但賦值用 `max_price - min_price`，邏輯雖然正確但難以閱讀
+- 初始化時 `price[0]` 拼成迴圈變數名稱，應為 `prices[0]`（NameError）
+
+---
+
 ### From: 53. Maximum Subarray (2026-06-26)
 
 Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
