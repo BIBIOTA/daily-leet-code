@@ -1,10 +1,10 @@
 ## 347. Top K Frequent Elements
 - slug: top-k-frequent-elements
-- pattern: Hash Table / Heap
+- pattern: Hash Table + Heap (Top K Elements)
 - last_result: Struggled
 - current_interval_days: 1
-- last_reviewed: 2026-06-28
-- due_date: 2026-06-29
+- last_reviewed: 2026-06-29
+- due_date: 2026-06-30
 - consecutive_passes: 0
 
 ## 49. Group Anagrams

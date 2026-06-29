@@ -41,3 +41,18 @@ Approach: 用 dict 手動建頻率表，再用 sorted(freq.items(), key=lambda x
 Key insight: sorted() 的 key 必須是關鍵字參數；sorted(freq.items()) 排序的是 (key, value) tuple，不是 dict 本身
 
 Mistake I made: 空間複雜度誤答 O(1)——只要建了 dict / Counter 就是 O(n)，因為儲存了所有 unique 元素；sorted() 語法混淆（把 key 當位置參數傳入）
+
+---
+
+### From: 347. Top K Frequent Elements（2026-06-29 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter(nums).most_common(k) 直接取前 k 個最高頻元素，再 list comprehension 取 num
+Key insight: most_common(k) 底層是 min-heap，時間 O(n log k)；若改用 sorted() 全排序則退化為 O(n log n)，違反 follow-up 要求
+
+Trace（Counter 內部流程）:
+- Counter([1,1,1,2,2,3]) → {1: 3, 2: 2, 3: 1}
+- most_common(2) 維護大小為 2 的 min-heap，遍歷每個元素：push → 超過 k 就 pop 最小
+- 結果：[(1, 3), (2, 2)] → return [1, 2]
+
+Mistake I made: import 語法錯誤寫成 `import collections from Counter`（Python 正確語法為 `from collections import Counter`）；說明 alternative 時選了 sorted()，忘記這樣複雜度是 O(n log n)，應改為手動維護 min-heap 才能保持 O(n log k)
