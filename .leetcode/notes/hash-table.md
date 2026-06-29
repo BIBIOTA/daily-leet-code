@@ -84,3 +84,20 @@ index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
 ```
 
 Mistake I made: `if diff in result.keys()` 多餘，Python 3 直接 `if diff in result` 即可；`else` 分支可刪（if 內已 return）。進階：陣列已排序時改用 Two Pointers，空間降至 O(1)。
+
+---
+
+### From: 217. Contains Duplicate — Review (2026-06-29)
+
+Input: `[1, 2, 3, 1]`
+Approach: `len(set(nums)) != len(nums)` — 將陣列轉為 set 後比較長度差異。
+Key insight: set 只保留唯一值，若有重複，set 長度必定小於原陣列長度。
+
+```
+nums = [1, 2, 3, 1]
+set(nums) = {1, 2, 3} → len 3
+len(nums) = 4
+3 != 4 → True（有重複）
+```
+
+Mistake I made: 空間複雜度誤答 O(1)，實際上 `set(nums)` 最多存放 n 個元素，空間為 O(n)。O(1) 空間需先 in-place sort 再比較相鄰元素，但時間升至 O(n log n)。
