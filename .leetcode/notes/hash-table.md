@@ -132,6 +132,23 @@ Mistake I made: (none — 乾淨解出，無提示)
 
 ---
 
+### From: 217. Contains Duplicate — Review (2026-06-30)
+
+Input: `[1, 2, 3, 1]`
+Approach: `len(set(nums)) != len(nums)` — 建立 set 與原陣列比較長度。
+Key insight: set 去重後若長度變小，必有重複——O(n) 時間，O(n) 空間；一行解決。
+
+```
+nums = [1, 2, 3, 1]
+set(nums) = {1, 2, 3} → len 3
+len(nums) = 4
+3 != 4 → True
+```
+
+Mistake I made: (none — 乾淨解出，無提示；這次也正確說明了空間複雜度 O(n))
+
+---
+
 ### From: 217. Contains Duplicate — Review (2026-06-29)
 
 Input: `[1, 2, 3, 1]`
