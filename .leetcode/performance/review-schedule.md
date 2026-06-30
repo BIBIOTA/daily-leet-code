@@ -10,10 +10,10 @@
 ## 49. Group Anagrams
 - slug: group-anagrams
 - pattern: Hash Table
-- last_result: Passed (partial)
+- last_result: Struggled
 - current_interval_days: 1
-- last_reviewed: 2026-06-29
-- due_date: 2026-06-30
+- last_reviewed: 2026-06-30
+- due_date: 2026-07-01
 - consecutive_passes: 0
 
 ## 1. Two Sum

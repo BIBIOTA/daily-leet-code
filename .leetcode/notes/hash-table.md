@@ -87,6 +87,34 @@ Mistake I made: `if diff in result.keys()` 多餘，Python 3 直接 `if diff in 
 
 ---
 
+### From: 49. Group Anagrams — Review (2026-06-30)
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: `defaultdict(list)` 以 `tuple(sorted(word))` 為 key，將同組字串 append 在一起，最後 `return list(anagrams_dict.values())`。
+Key insight: 互為異位詞的字串排序後完全相同，可作為 hash map 的 key 聚合分組。
+
+```
+"eat" → tuple(sorted) → ('a','e','t') → dict[('a','e','t')] = ["eat"]
+"tea" → ('a','e','t') → dict[('a','e','t')] = ["eat","tea"]
+"tan" → ('a','n','t') → dict[('a','n','t')] = ["tan"]
+"ate" → ('a','e','t') → dict[('a','e','t')] = ["eat","tea","ate"]
+"nat" → ('a','n','t') → dict[('a','n','t')] = ["tan","nat"]
+"bat" → ('a','b','t') → dict[('a','b','t')] = ["bat"]
+→ return [["eat","tea","ate"],["tan","nat"],["bat"]]
+```
+
+Mistake I made: `return` 那行連錯三次——先誤用解包語法 `[word for word, _ in ...]`，再誤包 `[anagrams_dict.values()]`，再漏掉 expression 寫成 `[for word in ...]`。正確寫法是 `list(anagrams_dict.values())` 或等價的 `[group for group in anagrams_dict.values()]`（注意變數名應為 `group` 不是 `word`）。時間複雜度誤答 O(n log k)，忘記乘以外層 n；空間複雜度誤答 O(n)，忘記字串本身的長度 m。
+
+進階 key 設計：改用字母頻率陣列，時間從 O(n·m log m) 降至 O(n·m)：
+```python
+count = [0] * 26
+for c in word:
+    count[ord(c) - ord('a')] += 1
+key = tuple(count)
+```
+
+---
+
 ### From: 217. Contains Duplicate — Review (2026-06-29)
 
 Input: `[1, 2, 3, 1]`
