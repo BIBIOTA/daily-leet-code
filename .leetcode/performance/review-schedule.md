@@ -19,11 +19,11 @@
 ## 1. Two Sum
 - slug: two-sum
 - pattern: Hash Table
-- last_result: Struggled
-- current_interval_days: 1
-- last_reviewed: 2026-06-29
-- due_date: 2026-06-30
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 2
+- last_reviewed: 2026-06-30
+- due_date: 2026-07-02
+- consecutive_passes: 1
 
 ## 217. Contains Duplicate
 - slug: contains-duplicate
