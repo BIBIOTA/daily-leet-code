@@ -56,3 +56,13 @@ Trace（Counter 內部流程）:
 - 結果：[(1, 3), (2, 2)] → return [1, 2]
 
 Mistake I made: import 語法錯誤寫成 `import collections from Counter`（Python 正確語法為 `from collections import Counter`）；說明 alternative 時選了 sorted()，忘記這樣複雜度是 O(n log n)，應改為手動維護 min-heap 才能保持 O(n log k)
+
+---
+
+### From: 347. Top K Frequent Elements（2026-06-30 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter(nums).most_common(k) 取前 k 高頻，list comprehension `[num for num, _ in frequent_k]` 解構 tuple 取出數字
+Key insight: most_common(k) 回傳的是 **list of tuples**，不是 dict — 不能呼叫 `.values()`，要直接 unpack
+
+Mistake I made: 三次對 list 呼叫 `.values()`（只有 dict 才有此方法）；空間複雜度誤答 O(n·k)，應為 O(n)——Counter 最多存 n 個 unique 元素，output 存 k 個，合計 O(n+k) = O(n)

@@ -15,3 +15,4 @@
 | 2026-06-29 | #217 Contains Duplicate | Hash Table | Struggled | rung 0 | 空間複雜度誤答 O(1)，應為 O(n)；set() 建立最多 n 個元素的額外空間 |
 | 2026-06-29 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed (partial) | rung 1 | 多餘的 max_price 追蹤造成條件/賦值不一致；移除後簡化為 min_price + price - min_price 直接計算；初始化拼寫 price[0] 應為 prices[0] |
 | 2026-06-29 | #347. Top K Frequent Elements | Hash Table + Heap (Top K Elements) | Struggled | rung 0 | import 語法錯誤（import collections from Counter）；alternative 直覺用 sorted() O(n log n) 而非手動 heap O(n log k)；不確定 pattern 名稱 |
+| 2026-06-30 | #347. Top K Frequent Elements | Hash Table + Heap | Passed (partial) | rung 0 | 對 list 呼叫 .values() 錯誤（run 失敗 3 次）；空間複雜度誤答 O(n·k)，應為 O(n) |
