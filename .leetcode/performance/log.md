@@ -20,3 +20,4 @@
 | 2026-06-30 | #1. Two Sum | Hash Table | Passed | rung 0 | 乾淨解出；complement lookup 模式掌握；正確說明 sorted array 可改用 Two Pointers O(1) 空間 |
 | 2026-06-30 | #217. Contains Duplicate | Hash Table | Passed | rung 0 | 乾淨解出；正確分析 O(n) 時間 / O(n) 空間；理解 O(1) 空間替代方案需先 sort |
 | 2026-07-01 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 11 | reset 條件 current < num 等價 max(current+num, num)；run 試錯 11 次才找到正確邏輯；Sliding Window 誤識 pattern，應為 DP / Kadane's |
+| 2026-07-01 | #49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | 乾淨解出；正確分析時間 O(n·k log k) 空間 O(n·k)；了解改用 26-element freq tuple 可優化至 O(n·k) |

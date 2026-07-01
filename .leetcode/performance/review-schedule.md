@@ -9,12 +9,12 @@
 
 ## 49. Group Anagrams
 - slug: group-anagrams
-- pattern: Hash Table
-- last_result: Struggled
-- current_interval_days: 1
-- last_reviewed: 2026-06-30
-- due_date: 2026-07-01
-- consecutive_passes: 0
+- pattern: Hash Table + Canonical Form
+- last_result: Passed
+- current_interval_days: 2
+- last_reviewed: 2026-07-01
+- due_date: 2026-07-03
+- consecutive_passes: 1
 
 ## 1. Two Sum
 - slug: two-sum
