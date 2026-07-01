@@ -19,3 +19,4 @@
 | 2026-06-30 | #49. Group Anagrams | Hash Table | Struggled | rung 0 | return 語法連錯三次（list comprehension 誤用、dict_values 包裝錯誤、語法錯誤）；時間複雜度誤答 O(n log k)，應為 O(n·m log m)；空間複雜度誤答 O(n)，應為 O(n·m) |
 | 2026-06-30 | #1. Two Sum | Hash Table | Passed | rung 0 | 乾淨解出；complement lookup 模式掌握；正確說明 sorted array 可改用 Two Pointers O(1) 空間 |
 | 2026-06-30 | #217. Contains Duplicate | Hash Table | Passed | rung 0 | 乾淨解出；正確分析 O(n) 時間 / O(n) 空間；理解 O(1) 空間替代方案需先 sort |
+| 2026-07-01 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 11 | reset 條件 current < num 等價 max(current+num, num)；run 試錯 11 次才找到正確邏輯；Sliding Window 誤識 pattern，應為 DP / Kadane's |
