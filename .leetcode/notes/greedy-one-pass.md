@@ -43,6 +43,25 @@ Mistake I made:
 
 ---
 
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-07-02)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，維護 `min_price`（到目前為止最低價）與 `max_profit`，每步用 `price - min_price` 計算當天賣出利潤並更新最大值。
+Key insight: 先更新 `min_price` 再計算利潤，保證差值永遠 ≥ 0，不需要額外的負數 guard。
+
+```
+price=7: min=7, profit=0
+price=1: min=1, profit=0
+price=5: min=1, profit=4
+price=6: min=1, profit=5  ✅
+```
+
+Mistake I made:
+- 用 `best_price` 追蹤「賣出價格」而非「最大利潤」，return 的是價格而不是差值 → 一定要回傳 `profit = price - min_price`，不是 price 本身
+- 加了 `if max_profit < 0: max_profit = 0` 的 dead code——因為先更新 min_price，profit 永遠 ≥ 0，此條件永不觸發
+
+---
+
 ### From: 53. Maximum Subarray (2026-06-26)
 
 Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]

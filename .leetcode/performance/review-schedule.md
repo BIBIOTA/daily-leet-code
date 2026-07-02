@@ -37,10 +37,10 @@
 ## 121. Best Time to Buy and Sell Stock
 - slug: best-time-to-buy-and-sell-stock
 - pattern: Greedy / One Pass
-- last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-06-29
-- due_date: 2026-07-02
+- last_result: Struggled
+- current_interval_days: 1
+- last_reviewed: 2026-07-02
+- due_date: 2026-07-03
 - consecutive_passes: 0
 
 ## 53. Maximum Subarray
