@@ -22,3 +22,4 @@
 | 2026-07-01 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 11 | reset 條件 current < num 等價 max(current+num, num)；run 試錯 11 次才找到正確邏輯；Sliding Window 誤識 pattern，應為 DP / Kadane's |
 | 2026-07-01 | #49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | 乾淨解出；正確分析時間 O(n·k log k) 空間 O(n·k)；了解改用 26-element freq tuple 可優化至 O(n·k) |
 | 2026-07-02 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Struggled | rung 0 | 變數命名混淆（best_price 追蹤賣價而非利潤）；run_failures 3 次；dead code (if max_profit < 0 guard) |
+| 2026-07-02 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 3 | reset 條件 `current < num`（after +=）等價 `max(current+num, num)`；有冗餘 check `if max_sum < num`（可刪）；靠 run 試錯 3 次修正重置條件；pattern 誤答 Greedy，應為 DP / Kadane's |
