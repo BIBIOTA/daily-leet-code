@@ -209,6 +209,34 @@ Mistake I made: (none — 乾淨解出，無提示)
 
 ---
 
+### From: 49. Group Anagrams — Review (2026-07-03)
+
+Input: `["eat","tea","tan","ate","nat","bat"]`
+Approach: `defaultdict(list)` 以 `tuple(sorted(word))` 為 key，將同組字串 append 在一起，最後 `return list(anagrams_dict.values())`。
+Key insight: 互為異位詞的字串排序後字元 tuple 完全相同，可作為 hash map 的分組 key；時間 O(n·k log k)，空間 O(n·k)。
+
+```
+"eat" → ('a','e','t') → dict[('a','e','t')] = ["eat"]
+"tea" → ('a','e','t') → dict[('a','e','t')] = ["eat","tea"]
+"tan" → ('a','n','t') → dict[('a','n','t')] = ["tan"]
+"ate" → ('a','e','t') → dict[('a','e','t')] = ["eat","tea","ate"]
+"nat" → ('a','n','t') → dict[('a','n','t')] = ["tan","nat"]
+"bat" → ('a','b','t') → dict[('a','b','t')] = ["bat"]
+→ return [["eat","tea","ate"],["tan","nat"],["bat"]]
+```
+
+Mistake I made: 時間複雜度誤答 O(n log k)，忘記每次 sort 本身耗費 O(k log k)，全體應為 O(n·k log k)。
+
+進階：改用 26-element 字母頻率 tuple 當 key，時間從 O(n·k log k) 降至 O(n·k)：
+```python
+count = [0] * 26
+for c in word:
+    count[ord(c) - ord('a')] += 1
+key = tuple(count)
+```
+
+---
+
 ### From: 217. Contains Duplicate — Review (2026-07-03)
 
 Input: `[1, 2, 3, 1]`

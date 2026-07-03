@@ -27,3 +27,4 @@
 | 2026-07-03 | #217. Contains Duplicate | Hash Table | Passed | rung 0 | typo (nuns→nums) 靠 /run 發現；時間複雜度誤答 O(n log n)，實際為 O(n)；set() 是 hash table，平均 O(1) 插入 |
 | 2026-07-03 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | rung 0 | `min_price = max(...)` 誤寫為 min，靠 /run 發現；空間複雜度誤答 O(n)，應為 O(1)；理解順序對調不影響正確性 |
 | 2026-07-03 | #347. Top K Frequent Elements | Hash Table + Heap | Passed | rung 0 | 首次用 .keys() 呼叫 list 導致 AttributeError；空間複雜度誤答 O(n·k)，應為 O(n)；pattern 誤識為 Hash Table，應為 Hash Table + Heap |
+| 2026-07-03 | #49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | 複習乾淨通過；時間複雜度誤答 O(n log k)，應為 O(n·k log k)；了解字母頻率 tuple 可優化至 O(n·k) |
