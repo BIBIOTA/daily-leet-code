@@ -191,3 +191,18 @@ for c in word:
     count[ord(c) - ord('a')] += 1
 key = tuple(count)
 ```
+
+---
+
+### From: 1. Two Sum — Review (2026-07-03)
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+Approach: 用 dict 記錄「已遍歷的數字 → 索引」，每步計算 `diff = target - num`，若 diff 在 dict 中即回傳兩索引。
+Key insight: hash map 把「找另一半」轉為 O(1) complement 查找，時間 O(n)、空間 O(n)；若陣列已排序，改用 Two Pointers 可將空間降至 O(1)。
+
+```
+index=0, num=2, diff=7 → {} → 未找到 → {2:0}
+index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
+```
+
+Mistake I made: (none — 乾淨解出，無提示)
