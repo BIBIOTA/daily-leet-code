@@ -206,3 +206,20 @@ index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
 ```
 
 Mistake I made: (none — 乾淨解出，無提示)
+
+---
+
+### From: 217. Contains Duplicate — Review (2026-07-03)
+
+Input: `[1, 2, 3, 1]`
+Approach: `len(set(nums)) != len(nums)` — 建立 set 與原陣列比較長度。
+Key insight: set 去重後若長度變小，必有重複——O(n) 時間，O(n) 空間；`set()` 底層是 hash table，平均 O(1) 插入。
+
+```
+nums = [1, 2, 3, 1]
+set(nums) = {1, 2, 3} → len 3
+len(nums) = 4
+3 != 4 → True
+```
+
+Mistake I made: 時間複雜度誤答 O(n log n)——這是 sort 的複雜度，不是 hash set 的。`set(nums)` 建立成本是 O(n) 平均。另有 typo（nuns → nums）靠 /run 才發現。

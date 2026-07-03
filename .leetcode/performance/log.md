@@ -24,3 +24,4 @@
 | 2026-07-02 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Struggled | rung 0 | 變數命名混淆（best_price 追蹤賣價而非利潤）；run_failures 3 次；dead code (if max_profit < 0 guard) |
 | 2026-07-02 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 3 | reset 條件 `current < num`（after +=）等價 `max(current+num, num)`；有冗餘 check `if max_sum < num`（可刪）；靠 run 試錯 3 次修正重置條件；pattern 誤答 Greedy，應為 DP / Kadane's |
 | 2026-07-03 | #1. Two Sum | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明排序陣列可改用 Two Pointers 達 O(1) 空間 |
+| 2026-07-03 | #217. Contains Duplicate | Hash Table | Passed | rung 0 | typo (nuns→nums) 靠 /run 發現；時間複雜度誤答 O(n log n)，實際為 O(n)；set() 是 hash table，平均 O(1) 插入 |
