@@ -25,3 +25,4 @@
 | 2026-07-02 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 3 | reset 條件 `current < num`（after +=）等價 `max(current+num, num)`；有冗餘 check `if max_sum < num`（可刪）；靠 run 試錯 3 次修正重置條件；pattern 誤答 Greedy，應為 DP / Kadane's |
 | 2026-07-03 | #1. Two Sum | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明排序陣列可改用 Two Pointers 達 O(1) 空間 |
 | 2026-07-03 | #217. Contains Duplicate | Hash Table | Passed | rung 0 | typo (nuns→nums) 靠 /run 發現；時間複雜度誤答 O(n log n)，實際為 O(n)；set() 是 hash table，平均 O(1) 插入 |
+| 2026-07-03 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | rung 0 | `min_price = max(...)` 誤寫為 min，靠 /run 發現；空間複雜度誤答 O(n)，應為 O(1)；理解順序對調不影響正確性 |

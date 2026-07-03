@@ -85,3 +85,24 @@ Mistake I made:
 - 初始化 `best = 0` → 全負數輸入時永遠回傳 0，應改為 `best = nums[0]`
 - 用 `if/elif` 把 `current` 和 `best` 的更新綁在一起 → 兩者必須完全獨立，先更新 `current` 再更新 `best`
 - Big-O 寫成 `O(n-1)`，常數項應捨去，正確寫法是 `O(n)`
+
+---
+
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-07-03)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，追蹤 `min_price`（歷史最低價）與 `max_profit`，每步計算 `price - min_price` 並更新最大利潤。
+Key insight: 先更新 `min_price = min(min_price, price)` 再算利潤，或先算利潤再更新 `min_price`，兩種順序結果相同——不是順序決定對錯，而是用 `min` 還是 `max`。
+
+```
+price=7: min=7, profit=0
+price=1: min=1, profit=0   ← 新低，profit 不變
+price=5: min=1, profit=4
+price=3: min=1, profit=4
+price=6: min=1, profit=5  ✅
+price=4: min=1, profit=5
+```
+
+Mistake I made:
+- `min_price = max(min_price, price)` 誤用 max → min_price 追蹤「歷史最高價」，導致全部輸出 0
+- 空間複雜度誤答 O(n)，只用兩個固定變數，正確是 O(1)

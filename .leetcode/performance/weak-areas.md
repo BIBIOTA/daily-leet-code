@@ -4,6 +4,6 @@
 |---------|----------|----------------|---------------|----------------|--------|
 | heap / Counter | 4 | 0 | 100% | 2026-06-30 | 🔴 Needs work |
 | Hash Table | 11 | 6 | 45% | 2026-07-03 | 🟡 Developing |
-| Greedy / One Pass | 4 | 0 | 100% | 2026-07-02 | 🔴 Needs work |
+| Greedy / One Pass | 5 | 1 | 80% | 2026-07-03 | 🔴 Needs work |
 | Dynamic Programming (Kadane's) | 3 | 0 | 100% | 2026-07-02 | 🔴 Needs work |
 | Hash Table + Canonical Form | 1 | 1 | 0% | 2026-07-01 | 🟢 Solid |
