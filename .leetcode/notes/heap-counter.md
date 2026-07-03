@@ -66,3 +66,13 @@ Approach: Counter(nums).most_common(k) 取前 k 高頻，list comprehension `[nu
 Key insight: most_common(k) 回傳的是 **list of tuples**，不是 dict — 不能呼叫 `.values()`，要直接 unpack
 
 Mistake I made: 三次對 list 呼叫 `.values()`（只有 dict 才有此方法）；空間複雜度誤答 O(n·k)，應為 O(n)——Counter 最多存 n 個 unique 元素，output 存 k 個，合計 O(n+k) = O(n)
+
+---
+
+### From: 347. Top K Frequent Elements（2026-07-03 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter(nums).most_common(k) 取前 k 高頻，`[num for num, _ in result]` 解構 tuple 取出數字
+Key insight: most_common(k) 回傳 list of tuples，不能呼叫 .keys()；整體 O(n log k)，空間 O(n)
+
+Mistake I made: 首次嘗試對 most_common 結果呼叫 `.keys()`（list 沒有此方法）；空間複雜度誤答 O(n·k)，實際上 Counter 存 n 個元素、output 存 k 個，合計 O(n)

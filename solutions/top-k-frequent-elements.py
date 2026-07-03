@@ -7,5 +7,5 @@ class Solution:
         # Examples:
         # Input: nums = [1,1,1,2,2,3], k = 2  => Output: [1, 2]
         # Input: nums = [1], k = 1             => Output: [1]
-        frequent_k = Counter(nums).most_common(k)
-        return [num for num,_ in frequent_k]
+        top_k = Counter(nums).most_common(k)
+        return [num for num, _ in top_k]
