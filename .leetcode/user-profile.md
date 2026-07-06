@@ -1,5 +1,5 @@
 # User Profile
 
 - preferred_language: Python
-- total_attempted: 7
-- total_passed: 7
+- total_attempted: 8
+- total_passed: 8

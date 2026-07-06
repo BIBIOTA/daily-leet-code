@@ -31,3 +31,4 @@
 | 2026-07-06 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed | rung 0 | 首次乾淨複習通過；正確識別 pattern 為 DP / Kadane's；理解 `max(current+num, num)` 等價慣用寫法；了解分治法時間複雜度 O(n log n) |
 | 2026-07-06 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | rung 0 | 乾淨複習通過；正確分析 O(n) 時間 / O(1) 空間；理解 variant 多次交易需改用 Greedy 累加相鄰正差值；pattern 誤識為 Dynamic Programming，應為 Greedy / One Pass |
 | 2026-07-06 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 5 | 時間複雜度誤答 O(n log n)，應為 O(n)；run 失敗 5 次；需 5 層 hint 才完成；空間可優化至 O(1) 使用滾動變數 |
+| 2026-07-06 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed (partial) | rung 4 | Counter.most_common 誤用；range off-by-one（len-1 → len）；dead code Counter import；用 4 層 hint 完成 |
