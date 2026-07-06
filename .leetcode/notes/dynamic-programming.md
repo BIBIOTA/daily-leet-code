@@ -64,3 +64,25 @@ Approach: 同 Kadane's：`current = max_sum = nums[0]`，從 `nums[1:]` 迭代�
 Key insight: reset 條件 `if current < num`（`+=` 之後）等價於 `current = max(current + num, num)`——「延伸後的和比只取當前元素還差，就重新開始」。
 
 Mistake I made: 無——首次乾淨通過，無 hint、無 run 失敗。
+
+---
+
+## From: 198. House Robber (2026-07-06)
+
+Input: `[2, 7, 9, 3, 1]`
+Approach: 建立 dp 陣列，`dp[i]` 代表考慮到第 i 間為止的最大搶劫金額。base case：`dp[0]=nums[0]`，`dp[1]=max(nums[0],nums[1])`；轉移：`dp[i] = max(dp[i-1], dp[i-2] + nums[i])`。
+Key insight: 對每間房子只有「偷」或「不偷」兩種選擇——偷就加上兩格前的最優值，不偷就繼承前一格的最優值。不需要窮舉所有非相鄰組合。
+
+Trace:
+```
+nums = [2, 7, 9, 3, 1]
+dp[0] = 2
+dp[1] = max(2, 7) = 7
+dp[2] = max(dp[1], dp[0]+9) = max(7, 11) = 11
+dp[3] = max(dp[2], dp[1]+3) = max(11, 10) = 11
+dp[4] = max(dp[3], dp[2]+1) = max(11, 12) = 12  ← answer
+```
+
+空間優化：因為 dp[i] 只依賴 dp[i-1] 和 dp[i-2]，可用兩個變數 prev2、prev1 滾動，降至 O(1) 空間。
+
+Mistake I made: 初版用「奇偶分流」（偶數 index 一組、奇數 index 一組），錯誤假設最優解必是嚴格交替，無法處理 [2,1,1,2]→4 或 [5,1,1,5]→10 這類需跨兩格的情況。時間複雜度誤答 O(n log n)，實際為 O(n)。

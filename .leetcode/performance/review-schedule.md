@@ -51,3 +51,12 @@
 - last_reviewed: 2026-07-06
 - due_date: 2026-07-12
 - consecutive_passes: 1
+
+## 198. House Robber
+- slug: house-robber
+- pattern: Dynamic Programming (1D DP)
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-06
+- due_date: 2026-07-07
+- consecutive_passes: 0
