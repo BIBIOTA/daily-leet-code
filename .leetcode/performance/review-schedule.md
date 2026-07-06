@@ -78,3 +78,12 @@
 - last_reviewed: 2026-07-06
 - due_date: 2026-07-07
 - consecutive_passes: 0
+
+## 567. Permutation in String
+- slug: permutation-in-string
+- pattern: Sliding Window (Fixed Size)
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-06
+- due_date: 2026-07-07
+- consecutive_passes: 0

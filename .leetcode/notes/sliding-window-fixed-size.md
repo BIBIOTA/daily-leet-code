@@ -28,3 +28,17 @@ Trace (k=3):
 - i=6 (s[i]='d', s[i-k]='i'): 'i' 出 → -1=2；'d' 入 → 0；max=3
 
 Mistake I made: 混淆 current_count 與 max_count，把 max_count 當做 window_count 的初始值，導致歷史最大值「污染」後續計算；應保持兩個獨立變數。另外 set('a','e','i','o','u') 語法錯誤，正確為 set("aeiou")。
+
+### From: 567. Permutation in String (2026-07-06)
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 建立 s1 的 Counter 頻率表，再對 s2 維護一個長度固定為 len(s1) 的 Counter 窗口；每次右進一字 +1、左出一字 -1，計數歸零時 del 該 key，每步比較兩個 Counter 是否相等。
+Key insight: 排列的本質是「字母頻率相同」，不需枚舉所有排列——固定長度窗口 + Counter 比較即可，且兩個 Counter 比較是 O(26) = O(1)。
+
+Trace (s1="ab", window 滑過 s2="eidbaooo"):
+- 初始 win: {'e':1,'i':1} ≠ s1c {'a':1,'b':1}
+- i=2 (進'd', 出'e'): win={'i':1,'d':1} ≠ s1c
+- i=3 (進'b', 出'i'): win={'d':1,'b':1} ≠ s1c
+- i=4 (進'a', 出'd'): win={'b':1,'a':1} == s1c → True
+
+Mistake I made: 用 sorted(s1, reverse=True) 只生成一種排列，誤以為枚舉幾個代表即可；用 tuple(s2) 後嘗試用 string in tuple，型別完全不對。應從「比較頻率」而非「列舉排列」的角度思考。
