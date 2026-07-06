@@ -38,10 +38,10 @@
 - slug: best-time-to-buy-and-sell-stock
 - pattern: Greedy / One Pass
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-03
-- due_date: 2026-07-05
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-06
+- due_date: 2026-07-10
+- consecutive_passes: 2
 
 ## 53. Maximum Subarray
 - slug: maximum-subarray

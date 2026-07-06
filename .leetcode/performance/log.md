@@ -29,3 +29,4 @@
 | 2026-07-03 | #347. Top K Frequent Elements | Hash Table + Heap | Passed | rung 0 | 首次用 .keys() 呼叫 list 導致 AttributeError；空間複雜度誤答 O(n·k)，應為 O(n)；pattern 誤識為 Hash Table，應為 Hash Table + Heap |
 | 2026-07-03 | #49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | 複習乾淨通過；時間複雜度誤答 O(n log k)，應為 O(n·k log k)；了解字母頻率 tuple 可優化至 O(n·k) |
 | 2026-07-06 | #53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed | rung 0 | 首次乾淨複習通過；正確識別 pattern 為 DP / Kadane's；理解 `max(current+num, num)` 等價慣用寫法；了解分治法時間複雜度 O(n log n) |
+| 2026-07-06 | #121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | rung 0 | 乾淨複習通過；正確分析 O(n) 時間 / O(1) 空間；理解 variant 多次交易需改用 Greedy 累加相鄰正差值；pattern 誤識為 Dynamic Programming，應為 Greedy / One Pass |

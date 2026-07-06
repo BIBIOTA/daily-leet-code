@@ -106,3 +106,24 @@ price=4: min=1, profit=5
 Mistake I made:
 - `min_price = max(min_price, price)` 誤用 max → min_price 追蹤「歷史最高價」，導致全部輸出 0
 - 空間複雜度誤答 O(n)，只用兩個固定變數，正確是 O(1)
+
+---
+
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-07-06)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，追蹤 `min_price`（歷史最低價）與 `max_profit`，每步計算 `price - min_price` 並更新最大利潤。
+Key insight: 對每個潛在賣出日，最佳買入點永遠是它之前的歷史最低價；`min` 與 `max` 兩個變數完全獨立更新即可。
+
+```
+price=7: min=7, profit=0
+price=1: min=1, profit=0   ← 新低
+price=5: min=1, profit=4
+price=3: min=1, profit=4
+price=6: min=1, profit=5  ✅
+price=4: min=1, profit=5
+```
+
+Mistake I made:
+- pattern 誤識為 Dynamic Programming；此解法無 dp 陣列與狀態轉移，正確分類為 Greedy / One Pass
+- Variant（多次交易）誤以為仍需追蹤 min_price；實際上應直接累加相鄰正差值：`sum(max(0, prices[i]-prices[i-1]) for i in range(1, n))`
