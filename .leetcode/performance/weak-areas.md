@@ -8,4 +8,4 @@
 | Dynamic Programming (Kadane's) | 4 | 1 | 75% | 2026-07-06 | 🔴 Needs work |
 | Hash Table + Canonical Form | 2 | 2 | 0% | 2026-07-03 | 🟢 Solid |
 | Dynamic Programming (1D DP) | 1 | 0 | 100% | 2026-07-06 | 🔴 Needs work |
-| Sliding Window (Fixed Size) | 1 | 0 | 100% | 2026-07-06 | 🔴 Needs work |
+| Sliding Window (Fixed Size) | 2 | 0 | 100% | 2026-07-06 | 🔴 Needs work |

@@ -69,3 +69,12 @@
 - last_reviewed: 2026-07-06
 - due_date: 2026-07-07
 - consecutive_passes: 0
+
+## 1456. Maximum Number of Vowels in a Substring of Given Length
+- slug: maximum-number-of-vowels-in-a-substring-of-given-length
+- pattern: Sliding Window (Fixed Size)
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-06
+- due_date: 2026-07-07
+- consecutive_passes: 0
