@@ -46,8 +46,8 @@
 ## 53. Maximum Subarray
 - slug: maximum-subarray
 - pattern: Dynamic Programming (Kadane's)
-- last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-07-02
-- due_date: 2026-07-05
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 6
+- last_reviewed: 2026-07-06
+- due_date: 2026-07-12
+- consecutive_passes: 1

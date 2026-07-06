@@ -54,3 +54,13 @@ Mistake I made: reset 條件先後寫了兩個錯誤版本：
 1. `if max_sum < num` → 只在 num 超越全域最大時才 reset，漏掉「累積和已為負但尚未超過 max_sum 的 num」的情況
 2. 兩個 if 順序調換後同樣失敗——根本問題是比較對象錯誤
 正確條件：`if current < num`（+=之後），與 max_sum 完全無關。另外留下冗餘 check `if max_sum < num`（因前一行已保證 `current >= num`，後面的 `if max_sum < current` 已涵蓋此情況）。
+
+---
+
+## From: 53. Maximum Subarray (2026-07-06 複習)
+
+Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+Approach: 同 Kadane's：`current = max_sum = nums[0]`，從 `nums[1:]` 迭代；`current += num` 後若 `current < num` 則 reset；最後更新 `max_sum`。
+Key insight: reset 條件 `if current < num`（`+=` 之後）等價於 `current = max(current + num, num)`——「延伸後的和比只取當前元素還差，就重新開始」。
+
+Mistake I made: 無——首次乾淨通過，無 hint、無 run 失敗。
