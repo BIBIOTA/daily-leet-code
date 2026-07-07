@@ -29,10 +29,10 @@
 - slug: contains-duplicate
 - pattern: Hash Table
 - last_result: Passed
-- current_interval_days: 4
-- last_reviewed: 2026-07-03
-- due_date: 2026-07-07
-- consecutive_passes: 2
+- current_interval_days: 8
+- last_reviewed: 2026-07-07
+- due_date: 2026-07-15
+- consecutive_passes: 3
 
 ## 121. Best Time to Buy and Sell Stock
 - slug: best-time-to-buy-and-sell-stock

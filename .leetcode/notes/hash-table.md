@@ -254,6 +254,25 @@ Mistake I made: 時間複雜度誤答 O(n log n)——這是 sort 的複雜度�
 
 ---
 
+### From: 217. Contains Duplicate — Review (2026-07-07)
+
+Input: `[1, 2, 3, 1]`
+Approach: `len(set(nums)) != len(nums)` — 建立 set 與原陣列比較長度。
+Key insight: set 去重後若長度縮小，必有重複；`set()` 底層是 hash table，平均 O(1) 插入，整體 O(n)。
+
+```
+nums = [1, 2, 3, 1]
+set(nums) = {1, 2, 3} → len 3
+len(nums) = 4
+3 != 4 → True
+```
+
+Mistake I made: (none — 乾淨複習通過，無提示；正確說明 O(n)/O(n) 複雜度及 O(1) space 替代方案)
+
+進階：O(1) space 替代 → 先 `.sort()` 再比較相鄰元素，時間升至 O(n log n)。
+
+---
+
 ### From: 1. Two Sum — Review (2026-07-07)
 
 Input: `nums = [2, 7, 11, 15]`, `target = 9`
