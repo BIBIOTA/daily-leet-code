@@ -37,6 +37,21 @@ Trace (k=3):
 
 Mistake I made: 混淆 current_count 與 max_count，把 max_count 當做 window_count 的初始值，導致歷史最大值「污染」後續計算；應保持兩個獨立變數。另外 set('a','e','i','o','u') 語法錯誤，正確為 set("aeiou")。
 
+### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-07) — 複習
+
+Input: s = "abciiidef", k = 3
+Approach: 建立母音 set，計算前 k 字元的初始母音數作為 last_count；滑動時用 s[i-k] 判斷離開字元（母音則 -1），s[i] 判斷進入字元（母音則 +1），並以獨立的 max_count 追蹤全域最大值。
+Key insight: `last_count`（當前視窗計數）與 `max_count`（歷史最大值）必須分開——若用 max_count 當 window_count 的起點，視窗計數會被過去的峰值「污染」。
+
+Trace (k=3, s="leetcode"):
+- 初始 "lee"：last_count=2, max_count=2
+- i=3 (進't', 出'l'): 'l'非母音→不減；'t'非母音→不加；last_count=2
+- i=4 (進'c', 出'e'): 'e'母音→-1=1；'c'非母音→不加；last_count=1
+- i=5 (進'o', 出'e'): 'e'母音→-1=0；'o'母音→+1=1；last_count=1, max_count=2
+- 回傳 2 ✓
+
+Mistake I made: (1) `for i, ch in s[k:]` 應改為 `for i, ch in enumerate(s[k:])`，字串不可直接 unpack 成兩個變數；(2) 離開字元寫成 `s[k-i]` 方向錯誤，應為 `s[i-k]`；(3) 以 max_count 作 window_count 起點，導致視窗母音數虛高。
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

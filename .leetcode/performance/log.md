@@ -39,3 +39,4 @@
 | 2026-07-07 | 1. Two Sum | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明已排序可改用 Two Pointers 達 O(1) 空間；理解「先查後存」保證不重用同一 index |
 | 2026-07-07 | 217. Contains Duplicate | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明 O(n) time / O(n) space；理解 O(1) space 替代需先 sort（O(n log n)）|
 | 2026-07-07 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 | 複習乾淨通過；正確分析 O(n) time / O(1) space；理解固定長度窗口 sum 最大等價 average 最大；了解「至少 k」變形需 prefix sum + slope optimization |
+| 2026-07-07 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | enumerate 用法錯誤（for i,ch in s[k:] 需改 enumerate）；s[k-i] 取反方向字元；max_count 混作 current_count 造成多次 bug；靠 run 失敗 4 次定位；時間複雜度誤答 O(n·k log k)，應為 O(n) |

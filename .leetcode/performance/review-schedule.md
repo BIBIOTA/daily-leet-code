@@ -74,9 +74,9 @@
 - slug: maximum-number-of-vowels-in-a-substring-of-given-length
 - pattern: Sliding Window (Fixed Size)
 - last_result: Passed (partial)
-- current_interval_days: 1
-- last_reviewed: 2026-07-06
-- due_date: 2026-07-07
+- current_interval_days: 3
+- last_reviewed: 2026-07-07
+- due_date: 2026-07-10
 - consecutive_passes: 0
 
 ## 567. Permutation in String
