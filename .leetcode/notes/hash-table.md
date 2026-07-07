@@ -251,3 +251,18 @@ len(nums) = 4
 ```
 
 Mistake I made: 時間複雜度誤答 O(n log n)——這是 sort 的複雜度，不是 hash set 的。`set(nums)` 建立成本是 O(n) 平均。另有 typo（nuns → nums）靠 /run 才發現。
+
+---
+
+### From: 1. Two Sum — Review (2026-07-07)
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+Approach: 用 dict 記錄「已遍歷的數字 → 索引」，每步計算 `diff = target - num`，若 diff 在 dict 中即回傳兩索引。
+Key insight: 操作順序「先查後存」是保證不重用同一 index 的關鍵——當前的 `nums[i]` 在查找時還不在 dict 裡，所以不可能自配對。
+
+```
+index=0, num=2, diff=7 → {} → 未找到 → {2:0}
+index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
+```
+
+Mistake I made: (none — 乾淨複習通過，無提示)
