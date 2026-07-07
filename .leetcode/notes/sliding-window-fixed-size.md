@@ -14,6 +14,14 @@ Trace (k=4):
 
 Mistake I made: range 上界寫成 `len(nums) - 1`，漏掉最後一個 window；range 右界本身就是 exclusive，不需再 -1。另外誤用 Counter.most_common(k) 取最高頻元素，與「連續子陣列」概念無關。
 
+### From: 643. Maximum Average Subarray I (2026-07-07) — 複習
+
+Input: nums = [1, 12, -5, -6, 50, 3], k = 4
+Approach: 計算前 k 元素初始總和，從 index k 起滑動窗口（+右入 -左出），追蹤最大總和，最後除以 k。
+Key insight: 所有子陣列長度相同（都是 k），因此「最大平均值 ≡ 最大總和」——只需找 sum，不需在每步除以 k。
+
+Mistake I made: 無（複習乾淨通過）
+
 ### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-06)
 
 Input: s = "abciiidef", k = 3

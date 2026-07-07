@@ -64,11 +64,11 @@
 ## 643. Maximum Average Subarray I
 - slug: maximum-average-subarray-i
 - pattern: Sliding Window (Fixed Size)
-- last_result: Passed (partial)
-- current_interval_days: 1
-- last_reviewed: 2026-07-06
-- due_date: 2026-07-07
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 2
+- last_reviewed: 2026-07-07
+- due_date: 2026-07-09
+- consecutive_passes: 1
 
 ## 1456. Maximum Number of Vowels in a Substring of Given Length
 - slug: maximum-number-of-vowels-in-a-substring-of-given-length

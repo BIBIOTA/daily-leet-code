@@ -38,3 +38,4 @@
 | 2026-07-07 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 4 | 初始值正確（prev_1=0, prev_2=0）；用 dict 代替整數變數造成邏輯混亂；靠 4 層 hint 完成；能正確分析 O(n) 時間 O(1) 空間；理解 dp 陣列 vs 滾動變數差異 |
 | 2026-07-07 | 1. Two Sum | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明已排序可改用 Two Pointers 達 O(1) 空間；理解「先查後存」保證不重用同一 index |
 | 2026-07-07 | 217. Contains Duplicate | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明 O(n) time / O(n) space；理解 O(1) space 替代需先 sort（O(n log n)）|
+| 2026-07-07 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 | 複習乾淨通過；正確分析 O(n) time / O(1) space；理解固定長度窗口 sum 最大等價 average 最大；了解「至少 k」變形需 prefix sum + slope optimization |
