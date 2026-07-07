@@ -35,3 +35,4 @@
 | 2026-07-06 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | set('a','e',...) 語法錯誤（應為 set("aeiou")）；未分離 current_count 與 max_count 造成多次 bug；靠 run 試錯 8 次定位正確邏輯；最終理解 s[i-k] 取離開字元可省略 k_vowels 字串 |
 | 2026-07-06 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 4 | 誤用 tuple/sorted 枚舉排列；true/false 大小寫錯誤；需 4 層 hint 才轉向 Counter 頻率比較；時間複雜度誤答 O(K log n)，應為 O(n)；空間複雜度誤答 O(n)，應為 O(1) |
 | 2026-07-07 | 49. Group Anagrams | Hash Table + Canonical Form | Struggled | rung 0 | 缺少 defaultdict import（NameError）；時間複雜度誤答 O(n·k)，應為 O(n·k log k)；了解字元計數陣列可優化至 O(n·k) |
+| 2026-07-07 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 4 | 初始值正確（prev_1=0, prev_2=0）；用 dict 代替整數變數造成邏輯混亂；靠 4 層 hint 完成；能正確分析 O(n) 時間 O(1) 空間；理解 dp 陣列 vs 滾動變數差異 |
