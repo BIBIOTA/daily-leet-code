@@ -41,3 +41,4 @@
 | 2026-07-07 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 | 複習乾淨通過；正確分析 O(n) time / O(1) space；理解固定長度窗口 sum 最大等價 average 最大；了解「至少 k」變形需 prefix sum + slope optimization |
 | 2026-07-07 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | enumerate 用法錯誤（for i,ch in s[k:] 需改 enumerate）；s[k-i] 取反方向字元；max_count 混作 current_count 造成多次 bug；靠 run 失敗 4 次定位；時間複雜度誤答 O(n·k log k)，應為 O(n) |
 | 2026-07-07 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 4 | Counter(s2) 統計整個 s2 而非固定視窗；變數名拼錯（s1_count）導致 NameError；window_count = s2_counter 是 alias 非複製；add/remove 順序不影響結果（last_ch 已預先取得）；需 4 層 hint 完成 |
+| 2026-07-07 | 1704. Determine if String Halves Are Alike | String + Counting | Struggled | rung 2 | 變數命名顛倒（front 拿到後半）；run 失敗 4 次；大寫母音未初始化考慮；pattern 誤識為 Hash Table；space complexity 誤答 O(1)，應為 O(n)（.lower() 建立副本） |
