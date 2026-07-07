@@ -10,11 +10,11 @@
 ## 49. Group Anagrams
 - slug: group-anagrams
 - pattern: Hash Table + Canonical Form
-- last_result: Passed
-- current_interval_days: 4
-- last_reviewed: 2026-07-03
-- due_date: 2026-07-07
-- consecutive_passes: 2
+- last_result: Struggled
+- current_interval_days: 1
+- last_reviewed: 2026-07-07
+- due_date: 2026-07-08
+- consecutive_passes: 0
 
 ## 1. Two Sum
 - slug: two-sum
