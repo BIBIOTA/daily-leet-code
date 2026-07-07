@@ -52,6 +52,14 @@ Trace (k=3, s="leetcode"):
 
 Mistake I made: (1) `for i, ch in s[k:]` 應改為 `for i, ch in enumerate(s[k:])`，字串不可直接 unpack 成兩個變數；(2) 離開字元寫成 `s[k-i]` 方向錯誤，應為 `s[i-k]`；(3) 以 max_count 作 window_count 起點，導致視窗母音數虛高。
 
+### From: 567. Permutation in String (2026-07-07) — 複習
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 建立 s1 的 Counter，對 s2 維護固定長度 len(s1) 的 Counter 窗口；先比較初始窗口，再從 index len(s1) 起每步加右入字元 +1、減左出字元 -1，計數歸零時 del 該 key，每步比較兩個 Counter 是否相等。
+Key insight: add/remove 的順序不影響最終結果——last_ch 在操作前已預先取得，兩種順序都會得到相同的最終窗口狀態。
+
+Mistake I made: (1) Counter(s2) 統計整個 s2 而非滑動視窗；(2) 變數名拼錯（s1_count vs s1_counter）導致 NameError；(3) window_count = s2_counter 在迴圈中是 alias 非複製，兩個名字指向同一物件，重複賦值造成混淆。
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

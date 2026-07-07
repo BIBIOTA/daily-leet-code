@@ -84,6 +84,6 @@
 - pattern: Sliding Window (Fixed Size)
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-06
-- due_date: 2026-07-07
+- last_reviewed: 2026-07-07
+- due_date: 2026-07-08
 - consecutive_passes: 0

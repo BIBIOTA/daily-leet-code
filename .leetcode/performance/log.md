@@ -40,3 +40,4 @@
 | 2026-07-07 | 217. Contains Duplicate | Hash Table | Passed | rung 0 | 乾淨複習通過；正確說明 O(n) time / O(n) space；理解 O(1) space 替代需先 sort（O(n log n)）|
 | 2026-07-07 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 | 複習乾淨通過；正確分析 O(n) time / O(1) space；理解固定長度窗口 sum 最大等價 average 最大；了解「至少 k」變形需 prefix sum + slope optimization |
 | 2026-07-07 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | enumerate 用法錯誤（for i,ch in s[k:] 需改 enumerate）；s[k-i] 取反方向字元；max_count 混作 current_count 造成多次 bug；靠 run 失敗 4 次定位；時間複雜度誤答 O(n·k log k)，應為 O(n) |
+| 2026-07-07 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 4 | Counter(s2) 統計整個 s2 而非固定視窗；變數名拼錯（s1_count）導致 NameError；window_count = s2_counter 是 alias 非複製；add/remove 順序不影響結果（last_ch 已預先取得）；需 4 層 hint 完成 |

@@ -1,24 +1,30 @@
-from typing import List
 from collections import Counter
-
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         # Examples:
-        # Input: s1 = "ab", s2 = "eidbaooo" -> Output: True  (s2 含有 "ba"，是 s1 的一種排列)
-        # Input: s1 = "ab", s2 = "eidboaoo" -> Output: False
-        n = len(s1)
-        if n > len(s2):
+        # checkInclusion("ab", "eidbaooo") -> True   ("ba" is a permutation of "ab")
+        # checkInclusion("ab", "eidboaoo") -> False
+        s1_len = len(s1)
+        s2_len = len(s2)
+        if s1_len > s2_len:
             return False
+        
+        s1_counter = Counter(s1)
+        s2_counter = Counter(s2[:s1_len])
 
-        s1c, win = Counter(s1), Counter(s2[:n])
+        if s1_counter == s2_counter:
+            return True
+        
+        for i in range(s1_len, s2_len):
+            last_ch = s2[i - s1_len]
 
-        for i in range(n, len(s2)):
-            if win == s1c:
+            s2_counter[last_ch] -= 1
+            s2_counter[s2[i]] += 1
+
+            if s2_counter[last_ch] == 0:
+                del s2_counter[last_ch]
+
+            if s1_counter == s2_counter:
                 return True
-            win[s2[i]] += 1
-            win[s2[i - n]] -= 1
-            if win[s2[i - n]] == 0:
-                del win[s2[i - n]]
-
-        return win == s1c
+        return False
