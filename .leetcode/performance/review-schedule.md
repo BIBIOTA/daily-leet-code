@@ -57,8 +57,8 @@
 - pattern: Dynamic Programming (1D DP)
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-08
+- last_reviewed: 2026-07-08
+- due_date: 2026-07-09
 - consecutive_passes: 0
 
 ## 643. Maximum Average Subarray I
