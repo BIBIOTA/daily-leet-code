@@ -43,3 +43,4 @@
 | 2026-07-07 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 4 | Counter(s2) 統計整個 s2 而非固定視窗；變數名拼錯（s1_count）導致 NameError；window_count = s2_counter 是 alias 非複製；add/remove 順序不影響結果（last_ch 已預先取得）；需 4 層 hint 完成 |
 | 2026-07-07 | 1704. Determine if String Halves Are Alike | String + Counting | Struggled | rung 2 | 變數命名顛倒（front 拿到後半）；run 失敗 4 次；大寫母音未初始化考慮；pattern 誤識為 Hash Table；space complexity 誤答 O(1)，應為 O(n)（.lower() 建立副本） |
 | 2026-07-08 | 49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | import typo（collection→collections）導致第一次 /run 失敗；修正後全數通過；正確分析 O(n·k log k) 時間 / O(n·k) 空間；了解字元計數陣列可優化至 O(n·k) |
+| 2026-07-08 | 1704. Determine if String Halves Are Alike | String + Counting | Passed (partial) | rung 1 | 切片方向錯誤（s[middle:] 誤切後半，應為 s[:middle]）；len() 誤用於 generator（應為 sum()）；!= 應改為 ==；pattern 誤識為 Sliding Window |

@@ -82,10 +82,10 @@
 ## 1704. Determine if String Halves Are Alike
 - slug: determine-if-string-halves-are-alike
 - pattern: String + Counting
-- last_result: Struggled
-- current_interval_days: 1
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-08
+- last_result: Passed (partial)
+- current_interval_days: 3
+- last_reviewed: 2026-07-08
+- due_date: 2026-07-11
 - consecutive_passes: 0
 
 ## 567. Permutation in String
