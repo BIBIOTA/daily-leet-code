@@ -30,3 +30,13 @@ for c in word:
     count[ord(c) - ord('a')] += 1
 key = tuple(count)
 ```
+
+---
+
+### From: 49. Group Anagrams (2026-07-08) — 複習
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: 與上次相同：`tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳 `list(anagrams_dict.values())`。
+Key insight: 這次成功在 rung 0 通過；複雜度也答對（O(n·k log k) / O(n·k)）。
+
+Mistake I made: `from collection import defaultdict` typo（少一個 s），導致 /run 第一次 NameError。要記得 `collections`（複數）。
