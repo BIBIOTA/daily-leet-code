@@ -5,26 +5,16 @@ class Solution:
         # Examples:
         # checkInclusion("ab", "eidbaooo") -> True   ("ba" is a permutation of "ab")
         # checkInclusion("ab", "eidboaoo") -> False
-        s1_len = len(s1)
-        s2_len = len(s2)
-        if s1_len > s2_len:
+        if len(s1) > len(s2):
             return False
         
-        s1_counter = Counter(s1)
-        s2_counter = Counter(s2[:s1_len])
+        check = s2[:len(s1)]
 
-        if s1_counter == s2_counter:
+        if Counter(s1) == Counter(check):
             return True
-        
-        for i in range(s1_len, s2_len):
-            last_ch = s2[i - s1_len]
 
-            s2_counter[last_ch] -= 1
-            s2_counter[s2[i]] += 1
-
-            if s2_counter[last_ch] == 0:
-                del s2_counter[last_ch]
-
-            if s1_counter == s2_counter:
+        for i in range(len(s1), len(s2)):
+            check = check[1:] + s2[i]
+            if Counter(s1) == Counter(check):
                 return True
         return False

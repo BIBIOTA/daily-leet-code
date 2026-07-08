@@ -60,6 +60,14 @@ Key insight: add/remove 的順序不影響最終結果——last_ch 在操作前
 
 Mistake I made: (1) Counter(s2) 統計整個 s2 而非滑動視窗；(2) 變數名拼錯（s1_count vs s1_counter）導致 NameError；(3) window_count = s2_counter 在迴圈中是 alias 非複製，兩個名字指向同一物件，重複賦值造成混淆。
 
+### From: 567. Permutation in String (2026-07-08) — 複習
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 維護固定長度 len(s1) 的窗口字串 check；每輪 `check = check[1:] + s2[i]` 滑動，比較 Counter(s1) == Counter(check)。
+Key insight: 比較排列等於比較字元頻率，不需枚舉排列。但每輪重建 Counter(check) 是 O(k)；最優解應維護兩個 Counter 並用增減更新，讓每輪降為 O(1)。
+
+Mistake I made: (1) `s1 in Counter(check)` 檢查的是字串 s1 是否為 Counter 的 key（key 都是單字元），永遠 False；應改為 `Counter(s1) == Counter(check)`。(2) `check[:1]` 只保留窗口第一個字元（窗口縮短），應為 `check[1:]` 才能移除最左字元並維持窗口大小。
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

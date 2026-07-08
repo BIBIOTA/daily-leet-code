@@ -45,3 +45,4 @@
 | 2026-07-08 | 49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | import typo（collection→collections）導致第一次 /run 失敗；修正後全數通過；正確分析 O(n·k log k) 時間 / O(n·k) 空間；了解字元計數陣列可優化至 O(n·k) |
 | 2026-07-08 | 1704. Determine if String Halves Are Alike | String + Counting | Passed (partial) | rung 1 | 切片方向錯誤（s[middle:] 誤切後半，應為 s[:middle]）；len() 誤用於 generator（應為 sum()）；!= 應改為 ==；pattern 誤識為 Sliding Window |
 | 2026-07-08 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 3 / run_failures 6 | prev_2 更新順序錯誤（if/else 每輪只更新一個變數，且更新後的 prev_1 被誤用）；先存舊 prev_1 再更新才是正確 shift；需 3 層 hint + 6 次 run 失敗才找到正確邏輯 |
+| 2026-07-08 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | `s1 in Counter(check)` 語法錯誤（Counter key 是單字元，應改為 Counter(s1) == Counter(check)）；`check[:1]` 誤只保留首字元（應為 check[1:]）；每輪重建 Counter 為 O(k) 可優化為 O(1) 增減更新 |
