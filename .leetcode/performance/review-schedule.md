@@ -65,10 +65,10 @@
 - slug: maximum-average-subarray-i
 - pattern: Sliding Window (Fixed Size)
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-09
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-09
+- due_date: 2026-07-13
+- consecutive_passes: 2
 
 ## 1456. Maximum Number of Vowels in a Substring of Given Length
 - slug: maximum-number-of-vowels-in-a-substring-of-given-length

@@ -22,6 +22,18 @@ Key insight: 所有子陣列長度相同（都是 k），因此「最大平均�
 
 Mistake I made: 無（複習乾淨通過）
 
+### From: 643. Maximum Average Subarray I (2026-07-09) — 複習
+
+Input: nums = [1, 12, -5, -6, 50, 3], k = 4
+Approach: 計算前 k 元素初始總和 last_sum，從 index k 起滑動（current = last_sum - nums[i-k] + nums[i]），每步更新 last_sum = current 並追蹤 max_sum，最後除以 k。
+Key insight: 滑動窗口的核心是「以前一個視窗總和為基準」加減——若忘記 `last_sum = current`，基準永遠停在首個視窗，只有在最大視窗恰好能由首窗一步加減得到時才會僥倖答對。
+
+Breaking case（用來抓漏更新 last_sum）:
+- nums = [1,2,3,4,5], k=2，正確最大視窗是 [4,5]=9 → 4.5
+- 漏更新版本：last_sum 恆為 sum([1,2])=3，每步只得 3-左+右，算不到真正的累進視窗，回傳 2.5（錯）
+
+Mistake I made: 迴圈內算了 current 卻沒寫回 last_sum，基準未推進。另注意 `nums[:k]` 切片會實際複製一個長度 k 的暫時 list（瞬時 O(k) 空間）；要嚴格 O(1) 可改 `sum(nums[i] for i in range(k))` generator 累加。
+
 ### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-06)
 
 Input: s = "abciiidef", k = 3
