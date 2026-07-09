@@ -10,3 +10,4 @@
 | Dynamic Programming (1D DP) | 4 | 1 | 75% | 2026-07-09 | 🔴 Needs work |
 | Sliding Window (Fixed Size) | 8 | 2 | 75% | 2026-07-09 | 🔴 Needs work |
 | String + Counting | 2 | 0 | 100% | 2026-07-08 | 🔴 Needs work |
+| Sliding Window (Counting) | 1 | 0 | 100% | 2026-07-09 | 🔴 Needs work |

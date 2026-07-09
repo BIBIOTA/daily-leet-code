@@ -1,0 +1,31 @@
+# Sliding Window (Counting)
+
+> 計數型滑動視窗：數的不是「最長/最短」，而是「合格子字串/子陣列的**個數**」。
+> 招牌動作 —— `res += (right_pointer - left_pointer)`：一次把「以當前右端結尾的所有合法起點」整批加進去，不是逐一 `+= 1`。
+
+---
+
+### From: 2062. Count Vowel Substrings of a String (2026-07-09)
+
+Input: `word = "cuaieuouac"` → `7`；`word = "aeiouu"` → `2`
+Approach: 對每個右端點 `right`，用收縮指標 `start` 往右縮到「`[start, right]` 剛好不再集滿五母音」，則合法起點是 `[left, start-1]`，個數 = `start - left`；碰到子音把整段母音視窗歸零（`left = start = right + 1`）。
+Key insight: 「以右端點結尾的合格子字串**個數**」= 「合法起點能滑動的範圍長度」。每個右端點該加的量會變動，用 `start - left` 一次算出整批。
+
+Trace（`"aeioua"`，全母音故 left 恆 0）:
+- right=4 (u) 首次集滿 → while 縮掉 word[0]=a → start=1 → `res += 1-0 = 1`（起點只有 0 → "aeiou"）
+- right=5 (a) 又集滿 → while 縮掉 word[1]=e → start=2 → `res += 2-0 = 2`（起點 0,1 → "aeioua","eioua"）
+- 合計 3 ✅
+
+Complexity: 時間 O(n)（`right` 與 `start` 各單向前進 ≤ n 次，巢狀 while 不是 O(n²)）；空間 O(1)（cnt 最多 5 個 key）。
+
+Mistake I made:
+- 反覆在「求長度 / max」和「計數」之間打轉 —— 用 `len(substrings)`、`max_count` 而非累加合格配對數。
+- 中途 `return`（第一次集滿就收工），應掃完整個字串把每段貢獻加總。
+- 判斷五母音齊全用「長度 == 5」而非「set == vowels」——漏掉長度 > 5 仍合格的段（如 "aeiouu"）。
+- 語法坑：`list.append()` 忘了傳參數、`return x += 1`（+= 是語句不能接在 return 後）。
+- 核心卡點：不知道「集滿時該加幾」，缺少顯式的 `left` 左界指標 —— 這正是計數型視窗的鑰匙。
+
+變體練習（吃透 pattern）:
+- 若改成「允許中間夾子音、只要含全部 5 種母音」→ **移除**「子音重置」與 `seg_start`（`res += lo - left` 簡化為 `res += lo`），但 **while 收縮迴圈必須保留**（它是計數引擎，不是原題的額外約束）。縮指標跨過子音時 distinct 不變，天然可跨。
+
+相關題目: 992 (Subarrays with K Different Integers)、1358 (Number of Substrings Containing All Three Characters)、713 (Subarray Product Less Than K) —— 都是「數連續子區間個數」的計數型視窗。

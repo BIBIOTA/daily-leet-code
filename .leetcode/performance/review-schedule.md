@@ -96,3 +96,12 @@
 - last_reviewed: 2026-07-08
 - due_date: 2026-07-11
 - consecutive_passes: 0
+
+## 2062. Count Vowel Substrings of a String
+- slug: count-vowel-substrings-of-a-string
+- pattern: Sliding Window (Counting)
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-09
+- due_date: 2026-07-10
+- consecutive_passes: 0
