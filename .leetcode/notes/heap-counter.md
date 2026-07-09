@@ -76,3 +76,18 @@ Approach: Counter(nums).most_common(k) 取前 k 高頻，`[num for num, _ in res
 Key insight: most_common(k) 回傳 list of tuples，不能呼叫 .keys()；整體 O(n log k)，空間 O(n)
 
 Mistake I made: 首次嘗試對 most_common 結果呼叫 `.keys()`（list 沒有此方法）；空間複雜度誤答 O(n·k)，實際上 Counter 存 n 個元素、output 存 k 個，合計 O(n)
+
+---
+
+### From: 347. Top K Frequent Elements（2026-07-09 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter(nums).most_common(k) 取前 k 高頻，`[num for num, _ in frequent_k]` 解構 tuple 取數字
+Key insight: most_common(k) 底層是 `heapq.nlargest(k, ...)`，會遍歷「所有相異元素 u」逐一與大小為 k 的 heap 比較 → 這段是 **O(u log k)**，最壞 u=n 時 O(n log k)。log 的乘數是「相異元素數 u」不是 k！
+
+複雜度直覺（本輪追問的重點）:
+- k 只決定「每次 heap 操作多貴」（heap 高度 → log k）
+- u（相異元素數）決定「操作做幾次」（每個相異元素都要比一次）
+- 所以是 u·log k，不是 k·log k；例如 n=100000 全相異、k=3 → heap 操作跑 100000 次而非 3 次
+
+Mistake I made: 時間複雜度誤答 O(n + k log k)，正解 O(n + u log k)；誤以為 heap 操作只跑 k 次；pattern 只答 Hash Table，漏了 Heap / Top-K selection 這一半（統計用 hash、取前 k 用 heap 或 bucket sort）

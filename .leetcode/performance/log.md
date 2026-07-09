@@ -47,3 +47,4 @@
 | 2026-07-08 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 3 / run_failures 6 | prev_2 更新順序錯誤（if/else 每輪只更新一個變數，且更新後的 prev_1 被誤用）；先存舊 prev_1 再更新才是正確 shift；需 3 層 hint + 6 次 run 失敗才找到正確邏輯 |
 | 2026-07-08 | 567. Permutation in String | Sliding Window (Fixed Size) | Passed (partial) | rung 1 | `s1 in Counter(check)` 語法錯誤（Counter key 是單字元，應改為 Counter(s1) == Counter(check)）；`check[:1]` 誤只保留首字元（應為 check[1:]）；每輪重建 Counter 為 O(k) 可優化為 O(1) 增減更新 |
 | 2026-07-09 | 198. House Robber | Dynamic Programming (1D DP) | Passed | rung 0 | 首次乾淨複習通過；零提示、零 run 失敗；滾動變數 prev_1/prev_2 shift 順序正確；正確分析 O(n) 時間 / O(1) 空間；正確識別 pattern 為 DP；能解釋「搶這間須接 prev_2」源於相鄰限制 |
+| 2026-07-09 | 347. Top K Frequent Elements | Hash Table + Heap | Passed | rung 0 | 首次對 list 呼叫 .keys() 造成 AttributeError（run 失敗 1 次即修正）；時間複雜度誤答 O(n + k log k)，應為 O(n + u log k)（log 乘數是相異元素數 u 而非 k）；pattern 誤識為 Hash Table，應含 Heap / Top-K selection |

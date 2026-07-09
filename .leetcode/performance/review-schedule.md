@@ -2,10 +2,10 @@
 - slug: top-k-frequent-elements
 - pattern: Hash Table + Heap
 - last_result: Passed
-- current_interval_days: 6
-- last_reviewed: 2026-07-03
-- due_date: 2026-07-09
-- consecutive_passes: 1
+- current_interval_days: 12
+- last_reviewed: 2026-07-09
+- due_date: 2026-07-21
+- consecutive_passes: 2
 
 ## 49. Group Anagrams
 - slug: group-anagrams
