@@ -50,3 +50,15 @@ return prev_1
 ```
 
 Mistake I made: 用 if/else 交替更新 prev_1 和 prev_2，每輪只有一個變數被更新，且 prev_2 拿到的是已更新的 prev_1 而非舊值，導致連續三次嘗試答案都偏大。
+
+---
+
+### From: 198. House Robber — Review (2026-07-09) ✅ 首次乾淨通過
+
+Input: nums = [1, 2, 3, 1]
+Approach: 滾動兩個變數，迴圈中 `current = num + prev_2`，再 `prev_2 = prev_1`、`prev_1 = max(current, prev_1)`——先把舊 prev_1 存進 prev_2，再更新 prev_1，順序正確就不會踩到之前的 shift bug。
+Key insight: 決定「搶這間」時上一間必須跳過，只能接續「前兩間」的最佳解 prev_2；`max(current, prev_1)` 就是「搶 vs 不搶」的抉擇。這正是 dp[i] = max(dp[i-1], dp[i-2] + nums[i]) 的滾動版。
+
+零提示、零 run 失敗，時間 O(n) / 空間 O(1) 皆答對。相較 2026-07-07（rung 4）與 2026-07-08（rung 3 + 6 次 run 失敗）明顯進步——之前反覆卡的 shift 順序這次一次寫對。
+
+Mistake I made: 無。
