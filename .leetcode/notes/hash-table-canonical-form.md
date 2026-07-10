@@ -39,4 +39,14 @@ Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
 Approach: 與上次相同：`tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳 `list(anagrams_dict.values())`。
 Key insight: 這次成功在 rung 0 通過；複雜度也答對（O(n·k log k) / O(n·k)）。
 
-Mistake I made: `from collection import defaultdict` typo（少一個 s），導致 /run 第一次 NameError。要記得 `collections`（複數）。
+Mistake I made: `from collection import defaultdict` typo（少一個 s），導致 /run 第一次 NameError。
+
+---
+
+### From: 49. Group Anagrams (2026-07-10) — 複習
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: `tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳 `list(groups.values())`。
+Key insight: return 階段直接取 `.values()` 即可；對 dict 本身迭代只拿到 keys。
+
+Mistake I made: return 誤寫為 `[word for word, _ in groups]`。`groups` 是 dict，對 dict 迭代拿到的是 key（字元 tuple），嘗試解包成 2 個值 → ValueError。正確寫法是 `list(groups.values())`。要記得 `collections`（複數）。
