@@ -80,6 +80,25 @@ Key insight: 比較排列等於比較字元頻率，不需枚舉排列。但每�
 
 Mistake I made: (1) `s1 in Counter(check)` 檢查的是字串 s1 是否為 Counter 的 key（key 都是單字元），永遠 False；應改為 `Counter(s1) == Counter(check)`。(2) `check[:1]` 只保留窗口第一個字元（窗口縮短），應為 `check[1:]` 才能移除最左字元並維持窗口大小。
 
+### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-10) — 複習
+
+Input: s = "abciiidef", k = 3
+Approach: 先計算前 k 字元的母音數（last_count），同步初始化 max_count；滑動時用 s[i-k] 判斷離開字元（母音則 -1）、s[i] 判斷進入字元（母音則 +1），以 last_count 追蹤當前視窗、max_count 追蹤歷史最大值。
+Key insight: `last_count`（當前視窗）與 `max_count`（歷史峰值）**必須是兩個獨立整數**；用 `last_count = max_count = sum(...)` 同步初始化，再分別更新，才不會讓歷史峰值污染後續的視窗計算。
+
+Trace (k=3, s="leetcode")：
+- 初始 "lee"：last_count=2, max_count=2
+- i=3 (進't', 出'l'): 兩者皆非母音 → last_count=2, max=2
+- i=4 (進'c', 出'e'): 'e'母音 → last_count=1, max=2
+- i=5 (進'o', 出'e'): 'e'母音 → last_count=0+1=1, 'o'母音 → last_count=1+1=2, max=2（wait, i=5: last_count=1-1+1=1 after e out, +1 for o = 1）
+
+Wait，讓我重算：
+- i=4 (進'c', 出'e'): last_count = 2-1 = 1, max=2
+- i=5 (進'o', 出'e'): last_count = 1-1+1 = 1, max=2
+- 回傳 2 ✓
+
+Mistake I made: 第一次寫 `current = max_count` 把歷史最大值當 window 起點，導致後續視窗母音數虛高（例如 "leetcode" 中 max_count=2 後，i=7 加入 'e' 算成 3，但正確視窗 "ode" 只有 2 個母音）。第二次寫 `last_count, max_count = sum(...)` 試圖解包整數，語法錯誤。正確做法：`last_count = max_count = sum(...)`（鏈式賦值）。
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

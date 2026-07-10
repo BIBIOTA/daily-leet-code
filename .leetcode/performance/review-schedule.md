@@ -75,8 +75,8 @@
 - pattern: Sliding Window (Fixed Size)
 - last_result: Passed (partial)
 - current_interval_days: 3
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-10
+- last_reviewed: 2026-07-10
+- due_date: 2026-07-13
 - consecutive_passes: 0
 
 ## 1704. Determine if String Halves Are Alike
