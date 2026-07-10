@@ -99,6 +99,22 @@ Wait，讓我重算：
 
 Mistake I made: 第一次寫 `current = max_count` 把歷史最大值當 window 起點，導致後續視窗母音數虛高（例如 "leetcode" 中 max_count=2 後，i=7 加入 'e' 算成 3，但正確視窗 "ode" 只有 2 個母音）。第二次寫 `last_count, max_count = sum(...)` 試圖解包整數，語法錯誤。正確做法：`last_count = max_count = sum(...)`（鏈式賦值）。
 
+### From: 567. Permutation in String (2026-07-10) — 複習
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 建立 s1 的 Counter，對 s2 維護固定長度 len(s1) 的窗口字串；先比較初始窗口，再滑動（去頭加尾），每步用 Counter(start) == s1_check 比對。
+Key insight: 等長的兩個字串判斷排列，**不能用 s1 == s2**（字串相等）——應用 Counter(s1) == Counter(s2) 比對字元頻率，順序不同的排列也應回傳 True。
+
+Trace (s1="ab", k=2):
+- start = "ei" → Counter ≠ s1_check
+- i=2: start = "id" → ≠
+- i=3: start = "db" → ≠
+- i=4: start = "ba" → Counter({'b':1,'a':1}) == {'a':1,'b':1} → True ✓
+
+Mistake I made: (1) `if s1_len == s2_len: return s1 == s2` 用字串完全相等而非頻率比對，s1="ab",s2="ba" 應為 True 卻回傳 False；(2) 每輪 `Counter(start)` 重建整個窗口計數是 O(k)，整體 O(n·k) 而非 O(n)；最優化應維護 running Counter，每步只做 +1/-1 降至 O(n)。
+
+---
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"
