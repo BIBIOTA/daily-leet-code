@@ -102,6 +102,6 @@
 - pattern: Sliding Window (Counting)
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-09
-- due_date: 2026-07-10
+- last_reviewed: 2026-07-10
+- due_date: 2026-07-11
 - consecutive_passes: 0

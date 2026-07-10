@@ -29,3 +29,13 @@ Mistake I made:
 - 若改成「允許中間夾子音、只要含全部 5 種母音」→ **移除**「子音重置」與 `seg_start`（`res += lo - left` 簡化為 `res += lo`），但 **while 收縮迴圈必須保留**（它是計數引擎，不是原題的額外約束）。縮指標跨過子音時 distinct 不變，天然可跨。
 
 相關題目: 992 (Subarrays with K Different Integers)、1358 (Number of Substrings Containing All Three Characters)、713 (Subarray Product Less Than K) —— 都是「數連續子區間個數」的計數型視窗。
+
+---
+
+### Review: 2062. Count Vowel Substrings of a String (2026-07-10)
+
+Mistake I made（複習仍重蹈的坑）:
+- 遇子音只 `continue` 跳過，但沒有清空 `vowel_dict`，導致跨子音的母音被合算進同一視窗。
+- `while` 迴圈內縮的是右端 `ch`，應縮左端 `word[start]`。
+- 只用一個左指標，缺少 `left`（段起點）與 `start`（可收縮指標）兩者分離的概念。
+- 無法解釋「start 為何不後退」：答案就是程式碼中 start 只有 `start += 1`，沒有任何 `start -= 1`，天然單調遞增，攤銷 O(n)。
