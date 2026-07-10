@@ -127,3 +127,24 @@ price=4: min=1, profit=5
 Mistake I made:
 - pattern 誤識為 Dynamic Programming；此解法無 dp 陣列與狀態轉移，正確分類為 Greedy / One Pass
 - Variant（多次交易）誤以為仍需追蹤 min_price；實際上應直接累加相鄰正差值：`sum(max(0, prices[i]-prices[i-1]) for i in range(1, n))`
+
+---
+
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-07-10)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，用 `buy = float('inf')` 初始化，每步 `buy = min(price, buy)`、`max_profit = max(max_profit, price - buy)`。
+Key insight: 用 `float('inf')` 取代 `prices[0]` 初始化，讓第一個元素能自然納入迴圈，不需要從 index 1 開始跳過——更乾淨。
+
+```
+price=7: buy=7,  profit=0
+price=1: buy=1,  profit=0   ← 新低
+price=5: buy=1,  profit=4
+price=3: buy=1,  profit=4
+price=6: buy=1,  profit=5  ✅
+price=4: buy=1,  profit=5
+```
+
+Variant（2 次交易 LC 123）：追蹤 4 個狀態——buy1（第一次最低成本）、sell1（第一次最大利潤）、buy2（第二次買入，扣 sell1）、sell2（最終最大利潤），仍是 O(n) 一次遍歷。
+
+Mistake I made: 無（首次零錯複習通過）

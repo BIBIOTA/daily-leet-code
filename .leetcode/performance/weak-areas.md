@@ -4,7 +4,7 @@
 |---------|----------|----------------|---------------|----------------|--------|
 | Hash Table + Heap | 6 | 2 | 67% | 2026-07-09 | 🔴 Needs work |
 | Hash Table | 13 | 8 | 38% | 2026-07-07 | 🟡 Developing |
-| Greedy / One Pass | 6 | 2 | 67% | 2026-07-06 | 🔴 Needs work |
+| Greedy / One Pass | 7 | 3 | 57% | 2026-07-10 | 🔴 Needs work |
 | Dynamic Programming (Kadane's) | 4 | 1 | 75% | 2026-07-06 | 🔴 Needs work |
 | Hash Table + Canonical Form | 5 | 4 | 20% | 2026-07-10 | 🟡 Developing |
 | Dynamic Programming (1D DP) | 4 | 1 | 75% | 2026-07-09 | 🔴 Needs work |
