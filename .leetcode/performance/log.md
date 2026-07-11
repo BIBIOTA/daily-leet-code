@@ -55,3 +55,4 @@
 | 2026-07-10 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed (partial) | rung 0 | `current = max_count` 把歷史最大值當 window 起點，導致視窗計數虛高；改為 `last_count = max_count = init` 後分離兩變數才正確；run 失敗 3 次定位 bug；時間 O(n) / 空間 O(1) 正確答出 |
 | 2026-07-10 | 121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | rung 0 | 複習乾淨通過；float('inf') 初始化買入價更優雅；正確答出 O(n) 時間 / O(1) 空間；理解 2 次交易需追蹤 4 狀態（buy1/sell1/buy2/sell2） |
 | 2026-07-10 | 567. Permutation in String | Sliding Window + Hash Table | Passed (partial) | rung 1 / run_failures 6 | s1==s2 等長判斷誤用字串相等（應為 Counter 比對）；run 試錯 6 次；每輪重建 Counter 為 O(n·k)，時間複雜度誤答 O(n) 應為 O(n·k)；最優化應維護 running Counter 差值降至 O(n) |
+| 2026-07-11 | 198. House Robber | Dynamic Programming (1D DP) | Passed | rung 0 | 初版缺少 max 導致強制搶每間房；修正後加回 max 並改用 tuple unpacking；run 失敗 1 次；時間 O(n) / 空間 O(1) 皆正確答出；圓形排列變形（LC 213）尚需學習 |

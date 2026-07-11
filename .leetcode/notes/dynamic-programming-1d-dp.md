@@ -62,3 +62,28 @@ Key insight: 決定「搶這間」時上一間必須跳過，只能接續「前�
 零提示、零 run 失敗，時間 O(n) / 空間 O(1) 皆答對。相較 2026-07-07（rung 4）與 2026-07-08（rung 3 + 6 次 run 失敗）明顯進步——之前反覆卡的 shift 順序這次一次寫對。
 
 Mistake I made: 無。
+
+---
+
+### From: 198. House Robber — Review (2026-07-11)
+
+Input: nums = [2, 1, 1, 2]
+Approach: 滾動兩個變數 prev、curr，用 Python tuple unpacking 同步賦值：`prev, curr = curr, max(curr, num + prev)`，掃一次陣列。
+Key insight: tuple unpacking 右側全部先計算完才賦值，天然解決「shift 前後順序」問題，不需要 `current` 暫存變數。
+
+Trace（nums = [2, 1, 1, 2]）：
+```
+初始: prev=0, curr=0
+num=2: prev=0, curr=max(0, 2+0)=2
+num=1: prev=2, curr=max(2, 1+0)=2    ← 這裡 prev 用的是舊的 curr(0) → 不對
+```
+⚠️ 注意：`prev, curr = curr, max(curr, num + prev)` 右側 `num + prev` 的 `prev` 是舊值（更新前），Python 右側整體先算，所以：
+```
+num=2: prev←0, curr←max(0,2+0)=2
+num=1: prev←2, curr←max(2,1+0)=2
+num=1: prev←2, curr←max(2,1+2)=3
+num=2: prev←3, curr←max(3,2+2)=4
+return 4 ✓
+```
+
+Mistake I made: 初版寫 `prev_1 = current`（沒有 max），強制每間房都搶，忽略跳過當間更優的情況，導致 [2,1,1,2] 答 3 而非 4。

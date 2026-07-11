@@ -56,10 +56,10 @@
 - slug: house-robber
 - pattern: Dynamic Programming (1D DP)
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-09
-- due_date: 2026-07-11
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-11
+- due_date: 2026-07-15
+- consecutive_passes: 2
 
 ## 643. Maximum Average Subarray I
 - slug: maximum-average-subarray-i
