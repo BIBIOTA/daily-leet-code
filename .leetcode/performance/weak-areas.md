@@ -11,3 +11,4 @@
 | Sliding Window (Fixed Size) | 10 | 2 | 80% | 2026-07-10 | 🔴 Needs work |
 | String + Counting | 3 | 1 | 67% | 2026-07-11 | 🔴 Needs work |
 | Sliding Window (Counting) | 2 | 0 | 100% | 2026-07-10 | 🔴 Needs work |
+| Sliding Window + Hash Table | 2 | 1 | 50% | 2026-07-11 | 🟡 Developing |

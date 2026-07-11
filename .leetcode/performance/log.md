@@ -57,3 +57,4 @@
 | 2026-07-10 | 567. Permutation in String | Sliding Window + Hash Table | Passed (partial) | rung 1 / run_failures 6 | s1==s2 等長判斷誤用字串相等（應為 Counter 比對）；run 試錯 6 次；每輪重建 Counter 為 O(n·k)，時間複雜度誤答 O(n) 應為 O(n·k)；最優化應維護 running Counter 差值降至 O(n) |
 | 2026-07-11 | 198. House Robber | Dynamic Programming (1D DP) | Passed | rung 0 | 初版缺少 max 導致強制搶每間房；修正後加回 max 並改用 tuple unpacking；run 失敗 1 次；時間 O(n) / 空間 O(1) 皆正確答出；圓形排列變形（LC 213）尚需學習 |
 | 2026-07-11 | 1704. Determine if String Halves Are Alike | String + Counting | Passed | rung 0 | 複習通過；set('aeiou') 漏大寫母音靠 edge case 發現後修正為 set('aeiouAEIOU')；空間複雜度誤答 O(1)，實際因切片建副本為 O(n)；改用 index 迭代可達真正 O(1) |
+| 2026-07-11 | 567. Permutation in String | Sliding Window + Hash Table | Passed | rung 0 | 空間複雜度誤答 O(n)，應為 O(1)（Counter 最多 26 key，字母表固定）；`+=` 不可用於賦值右側（SyntaxError）；run 失敗 2 次；理解 O(|Σ|) 與 O(1) 等價但 O(|Σ|) 更嚴謹 |

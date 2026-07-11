@@ -91,11 +91,11 @@
 ## 567. Permutation in String
 - slug: permutation-in-string
 - pattern: Sliding Window + Hash Table
-- last_result: Passed (partial)
-- current_interval_days: 1
-- last_reviewed: 2026-07-10
-- due_date: 2026-07-11
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 2
+- last_reviewed: 2026-07-11
+- due_date: 2026-07-13
+- consecutive_passes: 1
 
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string
