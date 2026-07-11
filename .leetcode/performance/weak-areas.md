@@ -9,5 +9,5 @@
 | Hash Table + Canonical Form | 5 | 4 | 20% | 2026-07-10 | 🟡 Developing |
 | Dynamic Programming (1D DP) | 5 | 2 | 60% | 2026-07-11 | 🔴 Needs work |
 | Sliding Window (Fixed Size) | 10 | 2 | 80% | 2026-07-10 | 🔴 Needs work |
-| String + Counting | 2 | 0 | 100% | 2026-07-08 | 🔴 Needs work |
+| String + Counting | 3 | 1 | 67% | 2026-07-11 | 🔴 Needs work |
 | Sliding Window (Counting) | 2 | 0 | 100% | 2026-07-10 | 🔴 Needs work |

@@ -13,6 +13,19 @@ Trace (s = "textbook", mid = 4):
 
 Mistake I made: `front, back = s[mid:], s[:mid]`（前後對調）；`set('aeiou')` 未涵蓋大寫母音（應用 `char.lower()`）；`sum(a in vowels)` 對整個字串做 `in` 而非逐字元迭代。
 
+### From: 1704. Determine if String Halves Are Alike (2026-07-11) — 複習 2
+
+Input: s = "AaEeIiOoUu"
+Approach: 切成前後兩半，用 `set('aeiouAEIOU')` 涵蓋大小寫，`sum(c in vowels for c in half)` 分別計數，比較相等。
+Key insight: 母音 set 必須涵蓋大小寫；Python 字串切片（`s[:mid]`）建立副本，嚴格 O(1) 空間需改用 index 迭代。
+
+Trace (s = "AaEeIiOoUu", mid = 5):
+- front = "AaEeI" → A,a,E,e,I → 5 vowels
+- back  = "iOoUu" → i,O,o,U,u → 5 vowels
+- 5 == 5 → True
+
+Mistake I made: 初版 `set('aeiou')` 漏大寫母音，edge case `"AaEeIiOoUu"` 揭露（應回傳 True 卻得 False）；空間複雜度誤答 O(1)，切片 `s[:mid]` 和 `s[mid:]` 各建 O(n/2) 副本，正確應為 O(n)。
+
 ### From: 1704. Determine if String Halves Are Alike (2026-07-08) — 複習
 
 Input: s = "book"
