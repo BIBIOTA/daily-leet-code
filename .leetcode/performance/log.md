@@ -60,3 +60,4 @@
 | 2026-07-11 | 567. Permutation in String | Sliding Window + Hash Table | Passed | rung 0 | 空間複雜度誤答 O(n)，應為 O(1)（Counter 最多 26 key，字母表固定）；`+=` 不可用於賦值右側（SyntaxError）；run 失敗 2 次；理解 O(|Σ|) 與 O(1) 等價但 O(|Σ|) 更嚴謹 |
 | 2026-07-11 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed (partial) | rung 4 | 空間複雜度誤答 O(n)，應為 O(1)；命名 substring 應改 freq；`-= 0` typo（應為 `-= 1`）；run 失敗 1 次；需 4 層 hint 完成 |
 | 2026-07-13 | 53. Maximum Subarray | Dynamic Programming (Kadane's) | Passed (partial) | rung 0 / run_failures 3 | 初始化 `last=0` 造成全負數回傳 0 bug；`range(nums[1:])` 語法錯誤；最終正確用 `nums[0]` 初始化 + `max(last+num, num)` 重置；run 試錯 3 次才收斂 |
+| 2026-07-13 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed (partial) | rung 1 / run_failures 10 | while 迴圈縮右端 word[right] 而非左端 word[inner_left]；多次 max/assign 誤用（應為 `inner_left - left` 在 while 外累加）；關鍵：shrink 必須從左端移除才能讓 inner_left 對應合法起點計數；time O(n) / space O(1) 正確答出 |

@@ -28,3 +28,20 @@ Trace（word="aeiouu"）：
 - right=5（u）：have=4（a 已移除），while 不進入。result += 1-0 = 1 → total=2
 
 Mistake I made: `substring[word[start]] -= 0` typo（應為 `-= 1`），導致 while 無限迴圈 IndexError；空間複雜度誤答 O(n)，字典最多 5 key 為 O(1)。
+
+---
+
+### From: 2062. Count Vowel Substrings of a String (2026-07-13)
+
+Input: word = "aeiouu"
+Approach: 三指針：`left`（連續母音段起點）、`inner_left`（while 收縮後的最小合法起點）、`right`（外層迴圈右端）。遇子音三者同時重置。每輪 `sum_results += inner_left - left`。
+Key insight: while 迴圈必須縮**左端**（`vowel_count[word[inner_left]] -= 1`），不能縮右端（`word[right]`）。縮左端後，`[left, inner_left-1]` 內每個起點都與 `right` 構成合法子字串，共 `inner_left - left` 個；縮右端只是把剛加入的字元移掉，inner_left 的移動毫無意義。
+
+Trace（word="aeioubbb"）：
+- right=0~4：累積 a/e/i/o/u，right=4 時 len=5
+- while：移除 word[inner_left=0]='a' → len=4，inner_left=1。sum+=1-0=1
+- right=5（'b'）：vowel_count 清空，inner_left=left=6
+- right=6,7（'b','b'）：非母音，繼續重置，sum+=0
+- 回傳 1 ✅
+
+Mistake I made: while 迴圈寫 `vowel_count[word[right]] -= 1`（縮右），應為 `vowel_count[word[inner_left]] -= 1`（縮左）；另外 `sum_results` 累加位置放在 while 內（應在 while 後、for 迴圈尾）。

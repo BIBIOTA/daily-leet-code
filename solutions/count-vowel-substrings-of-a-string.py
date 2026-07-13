@@ -1,9 +1,10 @@
+from collections import defaultdict
 # 2062. Count Vowel Substrings of a String (Easy)
 #
 # Examples:
 #   word = "aeiouu"        -> 2
 #   word = "unicornarihan" -> 0
-#   word = "cuaieuouac"    -> 7
+#   word = "aeioubbb"      -> 1
 #
 # Constraints:
 #   1 <= len(word) <= 100
@@ -12,29 +13,19 @@
 
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
-        vowel_dict = {}
-        result = 0
-        have = 0
-        left = start = 0
-        for right, ch in enumerate(word):
-            if ch not in set('aeiou'):
-                vowel_dict = {}
-                have = 0
-                left = start = right + 1
-                continue
-
-            vowel_dict[ch] = vowel_dict.get(ch, 0) + 1
-
-            if vowel_dict[ch] == 1:
-                have += 1
-
-            while have == 5:
-                start_ch = word[start]
-                vowel_dict[start_ch] -= 1
-
-                if vowel_dict[start_ch] == 0:
-                    have -= 1
-                start += 1
-            result += start - left
-
-        return result
+        vowels = set('aeiou')
+        vowel_count = defaultdict(int)
+        left = inner_left = sum_results = 0
+        for right in range(len(word)):
+            if word[right] in vowels:
+                vowel_count[word[right]] += 1
+            else:
+                vowel_count = defaultdict(int)
+                inner_left = left = right + 1
+            while len(vowel_count) == 5:
+                vowel_count[word[inner_left]] -= 1
+                if vowel_count[word[inner_left]] == 0:
+                    del vowel_count[word[inner_left]]
+                inner_left += 1
+            sum_results += inner_left - left
+        return sum_results
