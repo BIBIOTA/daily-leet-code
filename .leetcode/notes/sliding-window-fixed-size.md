@@ -115,6 +115,16 @@ Mistake I made: (1) `if s1_len == s2_len: return s1 == s2` 用字串完全相等
 
 ---
 
+### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-13) — 複習
+
+Input: s = "abciiidef", k = 3
+Approach: 建立母音 set，計算前 k 字元的母音數並同步初始化 `max_vowels = current = sum(...)`；從 index k 起滑動，每步 s[i-k] 離開（母音則 -1）、s[i] 進入（母音則 +1），持續更新 max_vowels。
+Key insight: 當 k == len(s) 時，for 迴圈完全不執行；若 max_vowels 初始為 0 而非 current，此 edge case 永遠回傳 0——必須用 `max_vowels = current` 確保首個視窗的結果被捕捉。另：當 current == k 時可直接 return k（early exit）。
+
+Mistake I made: (1) 迴圈內誤用 `ch[i - k]` / `ch[i]`（ch 是前面 generator 中的殘留變數，不是字串索引），應改為 `s[i - k]` / `s[i]`；(2) `set('aeiouAEIOU')` 包含大寫母音，題目限制 lowercase only，加大寫雖無害但顯示未細讀 constraints。
+
+---
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

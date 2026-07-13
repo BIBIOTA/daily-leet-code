@@ -73,11 +73,11 @@
 ## 1456. Maximum Number of Vowels in a Substring of Given Length
 - slug: maximum-number-of-vowels-in-a-substring-of-given-length
 - pattern: Sliding Window (Fixed Size)
-- last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-07-10
-- due_date: 2026-07-13
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 6
+- last_reviewed: 2026-07-13
+- due_date: 2026-07-19
+- consecutive_passes: 1
 
 ## 1704. Determine if String Halves Are Alike
 - slug: determine-if-string-halves-are-alike
