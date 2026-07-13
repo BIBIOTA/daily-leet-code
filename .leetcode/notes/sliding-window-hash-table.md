@@ -61,3 +61,13 @@ Trace（word="aeioubbb"）：
 - 回傳 1 ✅
 
 Mistake I made: while 迴圈寫 `vowel_count[word[right]] -= 1`（縮右），應為 `vowel_count[word[inner_left]] -= 1`（縮左）；另外 `sum_results` 累加位置放在 while 內（應在 while 後、for 迴圈尾）。
+
+---
+
+### From: 2062. Count Vowel Substrings of a String (2026-07-13 複習)
+
+Input: word = "aeiouu"
+Approach: 三指針 left/start/right；遇子音 left=start=right+1 並清空 freq；while len(freq)==5 時縮左（start++），之後 results += start - left。
+Key insight: `start` 是收縮後「剛好使 freq 少於 5 種」的第一個位置，所以 `[left, start-1]` 內每個起點都與 right 構成合法子字串，共 `start - left` 個，一行累加取代逐個計數。
+
+Mistake I made: 無（首次複習乾淨通過）。

@@ -100,8 +100,8 @@
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string
 - pattern: Sliding Window + Hash Table
-- last_result: Passed (partial)
-- current_interval_days: 1
+- last_result: Passed
+- current_interval_days: 2
 - last_reviewed: 2026-07-13
-- due_date: 2026-07-14
-- consecutive_passes: 0
+- due_date: 2026-07-15
+- consecutive_passes: 1
