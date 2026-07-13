@@ -92,10 +92,10 @@
 - slug: permutation-in-string
 - pattern: Sliding Window + Hash Table
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-11
-- due_date: 2026-07-13
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-13
+- due_date: 2026-07-17
+- consecutive_passes: 2
 
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string

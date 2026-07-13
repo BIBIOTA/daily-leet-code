@@ -31,6 +31,22 @@ Mistake I made: `substring[word[start]] -= 0` typo（應為 `-= 1`），導致 w
 
 ---
 
+### From: 567. Permutation in String (2026-07-13)
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 固定大小視窗（len(s1)）維護 s2_count，每步移出最左字元、加入新字元，與 s1_count 比對。
+Key insight: 排列等價於字元頻率相同；增量更新 Counter 讓每步從 O(k) 降至 O(1)，整體 O(n)。
+
+Trace（s1="ab", s2="eidbaooo"）：
+- 初始視窗 "ei"：{'e':1,'i':1} ≠ {'a':1,'b':1}
+- i=2 移出'e'加入'd' → {'i':1,'d':1} ≠
+- i=3 移出'i'加入'b' → {'d':1,'b':1} ≠
+- i=4 移出'd'加入'a' → {'b':1,'a':1} == s1_count ✅ return True
+
+Mistake I made: `s2_ken` typo（應為 `s2_len`）及 `k` 未定義（應為 `s1_len`）——複習時變數名稱拼錯導致 NameError，靠 /run 找出。
+
+---
+
 ### From: 2062. Count Vowel Substrings of a String (2026-07-13)
 
 Input: word = "aeiouu"
