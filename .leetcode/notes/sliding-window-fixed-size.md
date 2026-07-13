@@ -125,6 +125,16 @@ Mistake I made: (1) 迴圈內誤用 `ch[i - k]` / `ch[i]`（ch 是前面 generat
 
 ---
 
+### From: 643. Maximum Average Subarray I (2026-07-13) — 複習
+
+Input: nums = [1, 12, -5, -6, 50, 3], k = 4
+Approach: 計算前 k 元素初始總和，從 index k 起滑動（current += nums[i] - nums[i-k]），追蹤最大總和，最後除以 k。
+Key insight: `sum(nums[:k])` 是最直接的初始化方式；整個解法只需兩個變數（current、max_sum），不需 last_sum 等額外中間變數。
+
+Mistake I made: 連續兩次語法錯誤（`sum(num in nums[:k])` → `sum(for num in nums[:k])`），才修正為正確的 `sum(nums[:k])`；`num in nums[:k]` 是布林成員測試，不是 iterable；`sum(for ...)` 缺少變數名稱是語法錯誤。
+
+---
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"
