@@ -67,6 +67,16 @@ Mistake I made: 無——首次乾淨通過，無 hint、無 run 失敗。
 
 ---
 
+## From: 53. Maximum Subarray (2026-07-13 複習)
+
+Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+Approach: 同 Kadane's：`last = max_count = nums[0]`，從 `nums[1:]` 迭代；`last = max(last + num, num)` 同時處理延伸與重置；最後更新 `max_count`。
+Key insight: `max(last + num, num)` 一行等價於「若前綴和為負則重置」——等式兩邊相減即 `last < 0`，不需分開寫 if/else。
+
+Mistake I made: 初始化 `max_count = last = 0`（應為 `nums[0]`），導致全負數陣列回傳 0；誤用 `range(nums[1:])` 而非直接迭代 `nums[1:]`。靠 3 次 /run 試錯修正。
+
+---
+
 ## From: 198. House Robber (2026-07-06)
 
 Input: `[2, 7, 9, 3, 1]`

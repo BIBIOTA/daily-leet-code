@@ -46,10 +46,10 @@
 ## 53. Maximum Subarray
 - slug: maximum-subarray
 - pattern: Dynamic Programming (Kadane's)
-- last_result: Passed
-- current_interval_days: 6
-- last_reviewed: 2026-07-06
-- due_date: 2026-07-12
+- last_result: Passed (partial)
+- current_interval_days: 3
+- last_reviewed: 2026-07-13
+- due_date: 2026-07-16
 - consecutive_passes: 1
 
 ## 198. House Robber
@@ -99,9 +99,9 @@
 
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string
-- pattern: Sliding Window (Counting)
+- pattern: Sliding Window + Hash Table
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-10
-- due_date: 2026-07-11
+- last_reviewed: 2026-07-11
+- due_date: 2026-07-12
 - consecutive_passes: 0
