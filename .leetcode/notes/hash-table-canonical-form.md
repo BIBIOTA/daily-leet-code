@@ -50,3 +50,13 @@ Approach: `tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳
 Key insight: return 階段直接取 `.values()` 即可；對 dict 本身迭代只拿到 keys。
 
 Mistake I made: return 誤寫為 `[word for word, _ in groups]`。`groups` 是 dict，對 dict 迭代拿到的是 key（字元 tuple），嘗試解包成 2 個值 → ValueError。正確寫法是 `list(groups.values())`。要記得 `collections`（複數）。
+
+---
+
+### From: 49. Group Anagrams (2026-07-15) — 複習
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: `tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳 `list(results.values())`。
+Key insight: 排序後結果相同的字串就是 anagram，排序即 canonical form。
+
+Mistake I made: `defaultdict` 使用了但沒有 `from collections import defaultdict`，第一次 /run 即 NameError。pattern 只答 Hash Table，應完整答 Hash Table + Canonical Form。

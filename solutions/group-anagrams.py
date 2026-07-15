@@ -4,19 +4,19 @@ from collections import defaultdict
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        groups = defaultdict(list)
+        results = defaultdict(list)
         for word in strs:
             key = tuple(sorted(word))
-            groups[key].append(word)
-        return list(groups.values())
+            results[key].append(word)
+        return list(results.values())
 
 
 # Examples:
-# Input: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-# Output: [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]  (any order)
+# Input:  strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+# Output: [["bat"], ["nat","tan"], ["ate","eat","tea"]]  (any order)
 #
-# Input: strs = [""]
+# Input:  strs = [""]
 # Output: [[""]]
 #
-# Input: strs = ["a"]
+# Input:  strs = ["a"]
 # Output: [["a"]]

@@ -65,3 +65,4 @@
 | 2026-07-13 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 | 複習通過；`sum(num in nums[:k])` / `sum(for num in nums[:k])` 語法錯誤兩次才修正為 `sum(nums[:k])`；run 失敗 2 次；正確分析 O(n) 時間 / O(1) 空間；理解暴力法 O(n×k) vs 滑動視窗 O(n) 差距約 k 倍 |
 | 2026-07-13 | 567. Permutation in String | Sliding Window + Hash Table | Passed | rung 0 | `s2_ken` typo（應為 `s2_len`）及 `k` 未定義（應為 `s1_len`）；修正後全數通過；run 失敗 2 次；正確答出 O(n) 時間 / O(1) 空間；理解暴力 O(n×k) vs 滑動視窗增量更新 O(n) 差距 |
 | 2026-07-13 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed | rung 0 | 複習乾淨通過；雙左指標 left/start 設計掌握；time O(n) / space O(1) 正確答出；正確解釋 start-left 計數核心邏輯與兩指標各自角色 |
+| 2026-07-15 | 49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | defaultdict import 遺漏（第一次 /run NameError）；修正後全數通過；正確答出 O(n·k log k) 時間 / O(n·k) 空間；pattern 回答 Hash Table（應完整答 Hash Table + Canonical Form） |
