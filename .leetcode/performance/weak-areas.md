@@ -3,7 +3,7 @@
 | Pattern | Attempts | Solved cleanly | Struggle rate | Last attempted | Status |
 |---------|----------|----------------|---------------|----------------|--------|
 | Hash Table + Heap | 6 | 2 | 67% | 2026-07-09 | 🔴 Needs work |
-| Hash Table | 13 | 8 | 38% | 2026-07-07 | 🟡 Developing |
+| Hash Table | 14 | 9 | 36% | 2026-07-15 | 🟡 Developing |
 | Greedy / One Pass | 7 | 3 | 57% | 2026-07-10 | 🔴 Needs work |
 | Dynamic Programming (Kadane's) | 5 | 1 | 80% | 2026-07-13 | 🔴 Needs work |
 | Hash Table + Canonical Form | 6 | 5 | 17% | 2026-07-15 | 🟢 Solid |

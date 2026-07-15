@@ -20,10 +20,10 @@
 - slug: two-sum
 - pattern: Hash Table
 - last_result: Passed
-- current_interval_days: 8
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-15
-- consecutive_passes: 3
+- current_interval_days: 16
+- last_reviewed: 2026-07-15
+- due_date: 2026-07-31
+- consecutive_passes: 4
 
 ## 217. Contains Duplicate
 - slug: contains-duplicate
