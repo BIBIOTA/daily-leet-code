@@ -87,3 +87,13 @@ return 4 ✓
 ```
 
 Mistake I made: 初版寫 `prev_1 = current`（沒有 max），強制每間房都搶，忽略跳過當間更優的情況，導致 [2,1,1,2] 答 3 而非 4。
+
+---
+
+### From: 198. House Robber — Review (2026-07-16)
+
+Input: nums = [1, 2, 3, 1]
+Approach: 滾動兩個變數，先 `prev_2 = prev_1`（保存舊值），再 `prev_1 = max(curr, prev_2)`（比較搶 vs 不搶）。
+Key insight: update 順序是唯一雷點——若先更新 prev_1 再 shift prev_2，prev_2 每輪都等於最新的 prev_1，「跳一間」的距離消失，答案變成全部加總。想避免順序 bug 可改用 tuple unpacking：`prev, curr = curr, max(curr, num + prev)`。
+
+Mistake I made: 第一次把 `prev_1 = max(curr, prev_2)` 放在 `prev_2 = prev_1` 之前，一次 run 失敗後自行識別並修正順序。

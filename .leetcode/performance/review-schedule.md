@@ -29,10 +29,10 @@
 - slug: contains-duplicate
 - pattern: Hash Table
 - last_result: Passed
-- current_interval_days: 8
-- last_reviewed: 2026-07-07
-- due_date: 2026-07-15
-- consecutive_passes: 3
+- current_interval_days: 16
+- last_reviewed: 2026-07-16
+- due_date: 2026-08-01
+- consecutive_passes: 4
 
 ## 121. Best Time to Buy and Sell Stock
 - slug: best-time-to-buy-and-sell-stock
@@ -56,10 +56,10 @@
 - slug: house-robber
 - pattern: Dynamic Programming (1D DP)
 - last_result: Passed
-- current_interval_days: 4
-- last_reviewed: 2026-07-11
-- due_date: 2026-07-15
-- consecutive_passes: 2
+- current_interval_days: 8
+- last_reviewed: 2026-07-16
+- due_date: 2026-07-24
+- consecutive_passes: 3
 
 ## 643. Maximum Average Subarray I
 - slug: maximum-average-subarray-i
