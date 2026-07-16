@@ -67,3 +67,4 @@
 | 2026-07-13 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed | rung 0 | 複習乾淨通過；雙左指標 left/start 設計掌握；time O(n) / space O(1) 正確答出；正確解釋 start-left 計數核心邏輯與兩指標各自角色 |
 | 2026-07-15 | 49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | defaultdict import 遺漏（第一次 /run NameError）；修正後全數通過；正確答出 O(n·k log k) 時間 / O(n·k) 空間；pattern 回答 Hash Table（應完整答 Hash Table + Canonical Form） |
 | 2026-07-15 | 1. Two Sum | Hash Table | Passed | rung 0 | 複習乾淨通過；時間 O(n) / 空間 O(n) 皆正確答出；正確說明已排序陣列可改用 Two Pointers 達 O(1) 空間 |
+| 2026-07-16 | Custom. Consonant Group Sum | Linear Scan | Passed (partial) | rung 0 / run_failures 3 | defaultdict 迭代 key 而非 values（TypeError）；公式變數名 base_value_diff 命名混淆；run 試錯 3 次；pattern 誤識為 DP + Hash Table，應為 Linear Scan |
