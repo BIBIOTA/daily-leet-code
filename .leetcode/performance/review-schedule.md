@@ -83,10 +83,10 @@
 - slug: determine-if-string-halves-are-alike
 - pattern: String + Counting
 - last_result: Passed
-- current_interval_days: 6
-- last_reviewed: 2026-07-11
-- due_date: 2026-07-17
-- consecutive_passes: 1
+- current_interval_days: 12
+- last_reviewed: 2026-07-17
+- due_date: 2026-07-29
+- consecutive_passes: 2
 
 ## 567. Permutation in String
 - slug: permutation-in-string
