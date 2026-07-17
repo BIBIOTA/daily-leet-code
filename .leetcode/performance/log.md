@@ -69,3 +69,4 @@
 | 2026-07-15 | 1. Two Sum | Hash Table | Passed | rung 0 | 複習乾淨通過；時間 O(n) / 空間 O(n) 皆正確答出；正確說明已排序陣列可改用 Two Pointers 達 O(1) 空間 |
 | 2026-07-16 | Custom. Consonant Group Sum | Linear Scan | Passed (partial) | rung 0 / run_failures 3 | defaultdict 迭代 key 而非 values（TypeError）；公式變數名 base_value_diff 命名混淆；run 試錯 3 次；pattern 誤識為 DP + Hash Table，應為 Linear Scan |
 | 2026-07-16 | 198. House Robber | Dynamic Programming (1D DP) | Passed | rung 0 | update 順序第一次寫錯（prev_1 先更新導致 prev_2 喪失跳一間距離）；run 失敗 1 次後自行修正；enumerate 死碼（i 未使用）；return max(prev_2, prev_1) 多餘，可直接 return prev_1 |
+| 2026-07-17 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed (partial) | rung 1 | word[left] vs word[start] 指針混淆（run 失敗 4 次）；1 層 hint 後點出左指標角色；掌握 start-left 計數邏輯；pattern 誤識為 Two Pointer + DP，應為 Sliding Window + Hash Table |

@@ -71,3 +71,19 @@ Approach: 三指針 left/start/right；遇子音 left=start=right+1 並清空 fr
 Key insight: `start` 是收縮後「剛好使 freq 少於 5 種」的第一個位置，所以 `[left, start-1]` 內每個起點都與 right 構成合法子字串，共 `start - left` 個，一行累加取代逐個計數。
 
 Mistake I made: 無（首次複習乾淨通過）。
+
+---
+
+### From: 2062. Count Vowel Substrings of a String (2026-07-17 複習)
+
+Input: word = "cuaieuouac"
+Approach: 三指針 left/start/right；`left` 固定為連續母音段起點（遇子音重置），`start` 在 while 內收縮。每輪 `results += start - left`。
+Key insight: while 收縮時要移除 `word[start]`（正在前進的指針），不是 `word[left]`（永遠不動的左界）；`start` 越過後，`[left, start-1]` 內所有起點都與 right 構成合法子字串。
+
+Trace（word="cuaieuouac"，right=6 那輪）：
+- freq = {u:2,a:1,i:1,e:1,o:1}，len=5
+- while：移除 word[start=1]='u' → {u:1,...}，start=2
+- while：移除 word[start=2]='a' → {u:1,i:1,e:1,o:1}，del 'a'，start=3，len=4，exit
+- results += 3-1 = 2（起點 1 和 2 都合法）✅
+
+Mistake I made: 誤將 `word[start]` 寫成 `word[left]`，導致每次 while 迴圈都移除段起點同一個字元而非收縮位置，累積計數偏差。
