@@ -77,6 +77,16 @@ Mistake I made: 初始化 `max_count = last = 0`（應為 `nums[0]`），導致�
 
 ---
 
+## From: 53. Maximum Subarray (2026-07-17 複習)
+
+Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+Approach: 同 Kadane's：`last_sum = max_sum = nums[0]`，從 index 1 起迴圈；`last_sum = max(last_sum + nums[i], nums[i])` 一行同時處理延伸與重置；最後更新 `max_sum`。
+Key insight: 初始化必須用 `nums[0]` 而非 `0`——若初始為 0，全負數陣列時 `max_sum` 永遠不低於 0，回傳 0 而非正確的最大負值。
+
+Mistake I made: 語法錯誤兩次——`range(1, nums)` 應為 `range(1, len(nums))`；`num[i]` 是拼錯，應為 `nums[i]`；靠 run 試錯 3 次才修正。時間/空間複雜度說反（O(n) time / O(1) space）。
+
+---
+
 ## From: 198. House Robber (2026-07-06)
 
 Input: `[2, 7, 9, 3, 1]`

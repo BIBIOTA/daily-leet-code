@@ -45,11 +45,11 @@
 
 ## 53. Maximum Subarray
 - slug: maximum-subarray
-- pattern: Dynamic Programming (Kadane's)
+- pattern: Dynamic Programming (Kadane's Algorithm)
 - last_result: Passed (partial)
 - current_interval_days: 3
-- last_reviewed: 2026-07-13
-- due_date: 2026-07-16
+- last_reviewed: 2026-07-17
+- due_date: 2026-07-20
 - consecutive_passes: 1
 
 ## 198. House Robber
