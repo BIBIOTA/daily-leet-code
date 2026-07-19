@@ -148,3 +148,24 @@ price=4: buy=1,  profit=5
 Variant（2 次交易 LC 123）：追蹤 4 個狀態——buy1（第一次最低成本）、sell1（第一次最大利潤）、buy2（第二次買入，扣 sell1）、sell2（最終最大利潤），仍是 O(n) 一次遍歷。
 
 Mistake I made: 無（首次零錯複習通過）
+
+---
+
+### From: 121. Best Time to Buy and Sell Stock — 複習 (2026-07-19)
+
+Input: prices = [7, 1, 5, 3, 6, 4]
+Approach: 單次遍歷，`curr = float('inf')` 初始化，每步 `curr = min(price, curr)`、`max_profit = max(max_profit, price - curr)`。
+Key insight: `max_profit = 0` 的初始值隱含「無法獲利回傳 0」，不需要額外的 guard；`float('inf')` 讓第一個元素自然成為買入候選，無需跳過 index 0。
+
+```
+price=7: curr=7,  profit=0
+price=1: curr=1,  profit=0   ← 新低
+price=5: curr=1,  profit=4
+price=3: curr=1,  profit=4
+price=6: curr=1,  profit=5  ✅
+price=4: curr=1,  profit=5
+```
+
+Variant（無限次交易）：累加所有相鄰正差值 `sum(max(0, prices[i]-prices[i-1]) for i in range(1, n))`，時間 O(n)、空間 O(1)，仍是 Greedy。
+
+Mistake I made: 無（複習乾淨通過）

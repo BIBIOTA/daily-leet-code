@@ -135,6 +135,23 @@ Mistake I made: 連續兩次語法錯誤（`sum(num in nums[:k])` → `sum(for n
 
 ---
 
+### From: 1456. Maximum Number of Vowels in a Substring of Given Length (2026-07-19) — 複習
+
+Input: s = "abciiidef", k = 3
+Approach: 建立母音 set，用 `max_vowels = curr = sum(ch in vowels for ch in s[:k])` 同步初始化；從 index k 起滑動，每步 s[i-k] 離開（母音則 -1）、s[i] 進入（母音則 +1），持續更新 max_vowels。
+Key insight: 必須用鏈式賦值 `max_vowels = curr = sum(...)` 確保首個視窗已被捕捉——當 k == len(s) 時 for 迴圈完全不執行，若 max_vowels 初始為 0 將永遠回傳 0。
+
+Trace (k=3, s="abciiidef"):
+- 初始 "abc"：curr=1, max_vowels=1
+- i=3 (進'i', 出'a'): a 母音 → curr=0；i 母音 → curr=1, max=1
+- i=4 (進'i', 出'b'): b 非母音 → 不減；i 母音 → curr=2, max=2
+- i=5 (進'i', 出'c'): c 非母音 → 不減；i 母音 → curr=3, max=3
+- 回傳 3 ✓
+
+Mistake I made: 初版多寫 `max_vowels = 0` 死碼（隨即被鏈式賦值覆蓋），本次複習自行識別並移除；第一次 /run 中 k==len(s) edge case 失敗後方意識到此問題並修正。
+
+---
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

@@ -38,10 +38,10 @@
 - slug: best-time-to-buy-and-sell-stock
 - pattern: Greedy / One Pass
 - last_result: Passed
-- current_interval_days: 8
-- last_reviewed: 2026-07-10
-- due_date: 2026-07-18
-- consecutive_passes: 3
+- current_interval_days: 16
+- last_reviewed: 2026-07-19
+- due_date: 2026-08-04
+- consecutive_passes: 4
 
 ## 53. Maximum Subarray
 - slug: maximum-subarray
@@ -74,10 +74,10 @@
 - slug: maximum-number-of-vowels-in-a-substring-of-given-length
 - pattern: Sliding Window (Fixed Size)
 - last_result: Passed
-- current_interval_days: 6
-- last_reviewed: 2026-07-13
-- due_date: 2026-07-19
-- consecutive_passes: 1
+- current_interval_days: 12
+- last_reviewed: 2026-07-19
+- due_date: 2026-07-31
+- consecutive_passes: 2
 
 ## 1704. Determine if String Halves Are Alike
 - slug: determine-if-string-halves-are-alike
