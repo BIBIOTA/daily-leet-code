@@ -72,3 +72,4 @@
 | 2026-07-17 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed (partial) | rung 1 | word[left] vs word[start] 指針混淆（run 失敗 4 次）；1 層 hint 後點出左指標角色；掌握 start-left 計數邏輯；pattern 誤識為 Two Pointer + DP，應為 Sliding Window + Hash Table |
 | 2026-07-17 | 53. Maximum Subarray | Dynamic Programming (Kadane's Algorithm) | Passed (partial) | rung 0 | 語法錯誤兩次（`range(1, nums)` → `range(1, len(nums))`；`num[i]` → `nums[i]`）；run 試錯 3 次；時間/空間複雜度說反（O(n) time / O(1) space） |
 | 2026-07-17 | 1704. Determine if String Halves Are Alike | String + Counting | Passed | rung 0 | `mid = s // 2` TypeError（應為 `len(s) // 2`）；`set('aeiou')` 漏大寫母音後修正；空間複雜度誤答 O(1)，應為 O(n)（切片建副本）；改用 index 迭代可達真正 O(1) |
+| 2026-07-19 | 567. Permutation in String | Sliding Window + Hash Table | Struggled | rung 0 | import defaultdict 但使用 Counter（NameError）；移除字元索引三次修正歷程：i-1 → i-s1_len（decrement）→ del 也需用 i-s1_len 而非 i-1；run 失敗 3 次 |

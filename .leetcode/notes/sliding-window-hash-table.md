@@ -87,3 +87,13 @@ Trace（word="cuaieuouac"，right=6 那輪）：
 - results += 3-1 = 2（起點 1 和 2 都合法）✅
 
 Mistake I made: 誤將 `word[start]` 寫成 `word[left]`，導致每次 while 迴圈都移除段起點同一個字元而非收縮位置，累積計數偏差。
+
+---
+
+### From: 567. Permutation in String (2026-07-19 複習)
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 固定大小視窗（len(s1)）維護 s2_count，每步移出 s2[i-s1_len]、加入 s2[i]，與 s1_count 比對；計數歸零時從 Counter 刪除 key。
+Key insight: decrement 和 del 必須用**相同索引** `i-s1_len`（視窗左端），不是 `i-1`（前一個字元）。
+
+Mistake I made: (1) `import defaultdict` 但程式碼使用 `Counter`，導致 NameError；(2) `del s2_count[s2[i - 1]]` typo——應為 `del s2_count[s2[i - s1_len]]`，兩行用不同索引造成錯誤字元被刪除而正確字元殘留。
