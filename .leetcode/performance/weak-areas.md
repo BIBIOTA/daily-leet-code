@@ -12,4 +12,4 @@
 | String + Counting | 4 | 2 | 50% | 2026-07-17 | 🟡 Developing |
 | Sliding Window (Counting) | 2 | 0 | 100% | 2026-07-10 | 🔴 Needs work |
 | Sliding Window + Hash Table | 8 | 3 | 63% | 2026-07-19 | 🔴 Needs work |
-| Linear Scan | 1 | 0 | 100% | 2026-07-16 | 🔴 Needs work |
+| Linear Scan | 2 | 1 | 50% | 2026-07-19 | 🟡 Developing |

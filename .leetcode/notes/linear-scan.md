@@ -24,3 +24,15 @@ end → max_sum=max(200,98)=200  ← 結尾子音需在迴圈外再 max 一次
 ```
 
 Mistake I made: `for group in groups` 迭代的是 dict 的 key（整數），不是 value（list）；應改為 `groups.values()`。但更好的做法是直接捨棄 dict，改用 O(1) 空間的 running sum。
+
+---
+
+### From: Custom. Consonant Group Sum — Review (2026-07-19)
+
+Input: `"letter"` → `200`
+
+Approach: 單次遍歷，`group_sum` 累積目前子音群組，遇母音清零；每個子音都即時更新 `max_sum`。
+
+Key insight: 在迴圈內每個子音都更新 `max_sum`（而非只在群組結束才更新），自動處理字串以子音結尾的 edge case，省去迴圈後補算。
+
+Mistake I made: `vowels` 拼寫漏大寫應為 `VOWELS`（NameError）；`ord(ch) + diff` 方向錯誤應為 `ord(ch) - diff`（diff=16）；run 失敗 2 次。

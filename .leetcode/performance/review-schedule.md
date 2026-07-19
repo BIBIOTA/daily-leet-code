@@ -100,11 +100,11 @@
 ## Custom. Consonant Group Sum
 - slug: consonant-group-sum
 - pattern: Linear Scan
-- last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-07-16
-- due_date: 2026-07-19
-- consecutive_passes: 0
+- last_result: Passed
+- current_interval_days: 6
+- last_reviewed: 2026-07-19
+- due_date: 2026-07-25
+- consecutive_passes: 1
 
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string
