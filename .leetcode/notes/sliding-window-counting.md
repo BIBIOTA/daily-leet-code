@@ -32,6 +32,22 @@ Mistake I made:
 
 ---
 
+### From: 438. Find All Anagrams in a String (2026-07-19)
+
+Input: `s = "cbaebabacd"`, `p = "abc"` → `[0, 6]`
+Approach: 建固定大小視窗（長度 = len(p)），用 Counter 比對視窗與 p 的字元頻率是否完全相同；滑動時移除最左字元、加入最右字元，維護 running Counter。
+Key insight: 每步只需 O(1) 更新兩個字元計數（移除 s[i-len(p)]、加入 s[i]），避免每輪重建 Counter 的 O(m) 代價，將總時間從 O(n×m) 降至 O(n)。
+
+Trace（s="cbaebabacd", p="abc"，視窗大小=3）:
+- 初始視窗 "cba"：Counter={'c':1,'b':1,'a':1} == p_count → append 0
+- i=3：移除 s[0]='c'，加入 s[3]='e' → {'b':1,'a':1,'e':1} ≠ p_count
+- i=4：移除 s[1]='b'，加入 s[4]='b' → {'a':1,'e':1,'b':1} ≠ p_count
+- i=6：移除 s[3]='e'，加入 s[6]='b' → {'a':1,'b':1,'c':1} == p_count → append 6
+
+Mistake I made: 用 `Counter(s[i:i+p_len])` 每輪重建，誤以為時間是 O(n)，實際是 O(n×m)；不知道「進一個、出一個」的 O(1) 維護方式。
+
+---
+
 ### Review: 2062. Count Vowel Substrings of a String (2026-07-10)
 
 Mistake I made（複習仍重蹈的坑）:

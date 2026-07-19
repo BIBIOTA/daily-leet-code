@@ -76,3 +76,4 @@
 | 2026-07-19 | 121. Best Time to Buy and Sell Stock | Greedy / One Pass | Passed | 0 | 複習乾淨通過；`curr = float('inf')` 初始化最低價；O(n) 時間 / O(1) 空間皆正確答出；Greedy / One Pass 正確識別；正確說明無限交易需累加相鄰正差值 |
 | 2026-07-19 | 1456. Maximum Number of Vowels in a Substring of Given Length | Sliding Window (Fixed Size) | Passed | 0 | 複習乾淨通過；初版死碼 `max_vowels = 0` 自行識別並移除；run 失敗 1 次修正 k==len(s) edge case；O(n) 時間 / O(1) 空間正確答出 |
 | 2026-07-19 | Custom. Consonant Group Sum | Linear Scan | Passed | rung 0 / run_failures 2 | `vowels` 拼寫漏大寫（NameError）；`ord(ch)+diff` 方向錯誤應為 `-diff`；run 失敗 2 次；自行理解「每個子音更新 max_sum 可省去結尾補算」|
+| 2026-07-19 | 438. Find All Anagrams in a String | Sliding Window (Counting) | Struggled | 0 | 解法正確但每輪重建 Counter 導致 O(n×m) 而非 O(n)；時間複雜度誤答 O(n)；不知如何用 O(1) 增量更新優化 |

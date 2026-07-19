@@ -114,3 +114,12 @@
 - last_reviewed: 2026-07-17
 - due_date: 2026-07-20
 - consecutive_passes: 1
+
+## 438. Find All Anagrams in a String
+- slug: find-all-anagrams-in-a-string
+- pattern: Sliding Window (Counting)
+- last_result: Struggled
+- current_interval_days: 1
+- last_reviewed: 2026-07-19
+- due_date: 2026-07-20
+- consecutive_passes: 0
