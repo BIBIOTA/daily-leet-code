@@ -109,11 +109,11 @@
 ## 2062. Count Vowel Substrings of a String
 - slug: count-vowel-substrings-of-a-string
 - pattern: Sliding Window + Hash Table
-- last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-07-17
-- due_date: 2026-07-20
-- consecutive_passes: 1
+- last_result: Passed
+- current_interval_days: 6
+- last_reviewed: 2026-07-20
+- due_date: 2026-07-26
+- consecutive_passes: 2
 
 ## 438. Find All Anagrams in a String
 - slug: find-all-anagrams-in-a-string

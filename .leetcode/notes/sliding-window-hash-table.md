@@ -116,6 +116,21 @@ Mistake I made: (1) `s2[:s1]` typo（slice 用字串物件）；(2) `s2_count[le
 
 ---
 
+### From: 2062. Count Vowel Substrings of a String (2026-07-20 複習)
+
+Input: word = "aeiouu"
+Approach: 三指針 left/start/right；遇子音 left=start=right+1 並清空 freq dict；while len(freq)==5 時縮左（word[start] 計數 -1，歸零則 del，start++）；之後 results += start - left。
+Key insight: `start` 是收縮後「剛好使 freq 少於 5 種」的第一個位置，所以 `[left, start-1]` 內每個起點都與 right 構成合法子字串，共 `start - left` 個。
+
+Trace（word="aeiouu"）：
+- right=0~3：len(freq)<5，results+=0
+- right=4（第一個 u）：len=5，while 縮 start：word[0]='a' 歸零刪除，start=1。results += 1-0=1
+- right=5（第二個 u）：len=4（a 已不在），while 不進入。results += 1-0=1 → total=2
+
+Mistake I made: 無（本次複習乾淨通過，零 hint，零 run 失敗）。
+
+---
+
 ### From: 438. Find All Anagrams in a String (2026-07-20 複習)
 
 Input: s = "cbaebabacd", p = "abc"
