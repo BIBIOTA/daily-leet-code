@@ -81,3 +81,4 @@
 | 2026-07-20 | 567. Permutation in String | Sliding Window + Hash Table | Passed | rung 0 | `s2[:s1]` typo（應為 `s2[:s1_len]`）；s2_count 增量更新 left 行先寫成整數 key 而非字元 key，run 失敗 2 次後修正；O(n) 時間 / O(1) 空間皆正確；首次無 hint 通過複習 |
 | 2026-07-20 | 53. Maximum Subarray | Dynamic Programming (Kadane's Algorithm) | Passed | rung 0 | 複習乾淨通過；O(n) 時間 / O(1) 空間皆正確答出；正確識別 pattern 為 Kadane's Algorithm (DP)；正確解釋重置點為 nums[i] 而非 0（全負數必須選一元素） |
 | 2026-07-20 | 2062. Count Vowel Substrings of a String | Sliding Window + Hash Table | Passed | rung 0 | 複習乾淨通過；零提示、零 run 失敗；正確解釋雙左指針 left/start 各自角色及 start-left 計數邏輯；O(n) 時間 / O(1) 空間正確答出 |
+| 2026-07-20 | 3. Longest Substring Without Repeating Characters | Sliding Window (Variable Size) + Hash Map | Passed (partial) | rung 0 / run_failures 3 | 初版混入母音過濾邏輯（copy from 其他題）；多次重置整個視窗而非縮左邊界；需多次引導才轉向 index-tracking 架構；`char_index[ch] >= left` 的必要性能正確解釋；O(n) 時間 / O(1) 空間正確答出 |
