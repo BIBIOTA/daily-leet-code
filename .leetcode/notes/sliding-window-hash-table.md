@@ -100,6 +100,22 @@ Mistake I made: (1) `import defaultdict` 但程式碼使用 `Counter`，導致 N
 
 ---
 
+### From: 567. Permutation in String (2026-07-20 複習)
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 固定大小視窗（len(s1)）維護 s2_count；初始視窗為 s2[:s1_len]，接著迴圈 range(1, s2_len-s1_len+1)，每步移出 s2[i-1]（左端）、加入 s2[i+s1_len-1]（右端），計數歸零時 del 該 key，再與 s1_count 比對。
+Key insight: 切片初始視窗必須用 `s2[:s1_len]`（整數），不是 `s2[:s1]`（字串）；left/right 取的是字元 `s2[idx]` 而非整數 idx 本身。
+
+Trace（s1="ab", s2="eidbaooo"）：
+- 初始 Counter("ei") ≠ Counter("ab")
+- i=1：移出'e'，加入'd' → {i,d} ≠
+- i=2：移出'i'，加入'b' → {d,b} ≠
+- i=3：移出'd'，加入'a' → {b,a} == {a,b} ✅
+
+Mistake I made: (1) `s2[:s1]` typo（slice 用字串物件）；(2) `s2_count[left] -= 1` 誤用整數 index 為 key，應改為 `s2_count[s2[left]]`。
+
+---
+
 ### From: 438. Find All Anagrams in a String (2026-07-20 複習)
 
 Input: s = "cbaebabacd", p = "abc"
