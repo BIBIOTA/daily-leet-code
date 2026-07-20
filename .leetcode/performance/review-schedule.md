@@ -117,9 +117,9 @@
 
 ## 438. Find All Anagrams in a String
 - slug: find-all-anagrams-in-a-string
-- pattern: Sliding Window (Counting)
+- pattern: Sliding Window + Hash Table
 - last_result: Struggled
 - current_interval_days: 1
-- last_reviewed: 2026-07-19
-- due_date: 2026-07-20
+- last_reviewed: 2026-07-20
+- due_date: 2026-07-21
 - consecutive_passes: 0

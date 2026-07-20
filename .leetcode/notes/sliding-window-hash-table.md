@@ -97,3 +97,18 @@ Approach: 固定大小視窗（len(s1)）維護 s2_count，每步移出 s2[i-s1_
 Key insight: decrement 和 del 必須用**相同索引** `i-s1_len`（視窗左端），不是 `i-1`（前一個字元）。
 
 Mistake I made: (1) `import defaultdict` 但程式碼使用 `Counter`，導致 NameError；(2) `del s2_count[s2[i - 1]]` typo——應為 `del s2_count[s2[i - s1_len]]`，兩行用不同索引造成錯誤字元被刪除而正確字元殘留。
+
+---
+
+### From: 438. Find All Anagrams in a String (2026-07-20 複習)
+
+Input: s = "cbaebabacd", p = "abc"
+Approach: 固定大小視窗（len(p)），先在迴圈外初始化第一個視窗並比較（i=0），再從 i=1 開始滑動：移除 s[i-1]（左端離開），加入 s[i+p_len-1]（右端新進入）。迴圈 range(1, s_len-p_len+1) 確保視窗不越界。
+Key insight: 「先比較再滑動」——初始視窗在迴圈外單獨處理，迴圈內只做滑動；加入字元必須是 s[i+p_len-1]（右端），不是 s[i]（已在視窗內的字元）。
+
+Trace（s="cbaebabacd", p="abc", p_len=3）：
+- i=0（迴圈外）：s_count = Counter("cba") = {c:1,b:1,a:1} == p_count ✅ append(0)
+- i=1：移出 s[0]='c'，加入 s[3]='e' → {b:1,a:1,e:1} ≠
+- i=6：移出 s[5]='a'，加入 s[8]='c' → {b:1,a:1,c:1} == p_count ✅ append(6)
+
+Mistake I made: (1) 時間複雜度誤答 O(n)——每輪重建 Counter 使實際為 O(n×m)；(2) 加入字元寫成 s[i] 而非 s[i+p_len-1]；(3) 迴圈跑到 range(s_len) 導致 IndexError，應為 range(1, s_len-p_len+1)；(4) 結構混亂：i=0 也嘗試滑動，導致初始視窗被雙重計數。
