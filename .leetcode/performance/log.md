@@ -79,3 +79,4 @@
 | 2026-07-19 | 438. Find All Anagrams in a String | Sliding Window (Counting) | Struggled | 0 | 解法正確但每輪重建 Counter 導致 O(n×m) 而非 O(n)；時間複雜度誤答 O(n)；不知如何用 O(1) 增量更新優化 |
 | 2026-07-20 | 438. Find All Anagrams in a String | Sliding Window + Hash Table | Struggled | 5 | 複習重點：O(n) 增量更新需先比較再滑動；迴圈上限 range(1, s_len-p_len+1) 而非 range(s_len)；加入字元索引應為 s[i+p_len-1] 非 s[i]；需 5 層 hint 才看到最佳解 |
 | 2026-07-20 | 567. Permutation in String | Sliding Window + Hash Table | Passed | rung 0 | `s2[:s1]` typo（應為 `s2[:s1_len]`）；s2_count 增量更新 left 行先寫成整數 key 而非字元 key，run 失敗 2 次後修正；O(n) 時間 / O(1) 空間皆正確；首次無 hint 通過複習 |
+| 2026-07-20 | 53. Maximum Subarray | Dynamic Programming (Kadane's Algorithm) | Passed | rung 0 | 複習乾淨通過；O(n) 時間 / O(1) 空間皆正確答出；正確識別 pattern 為 Kadane's Algorithm (DP)；正確解釋重置點為 nums[i] 而非 0（全負數必須選一元素） |

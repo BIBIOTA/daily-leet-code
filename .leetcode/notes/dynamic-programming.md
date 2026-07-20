@@ -87,6 +87,28 @@ Mistake I made: 語法錯誤兩次——`range(1, nums)` 應為 `range(1, len(nu
 
 ---
 
+## From: 53. Maximum Subarray (2026-07-20 複習)
+
+Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+Approach: `sum_array = current = nums[0]`，從 index 1 起迴圈；`current += nums[i]` 後 `current = max(current, nums[i])`；最後更新 `sum_array`。
+Key insight: 重置點是 `nums[i]` 而非 `0`——若用 `max(current, 0)`，全負數陣列時結果為 0，但題目要求至少選一個元素。
+
+Trace（關鍵步驟）:
+```
+nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+current = sum_array = -2
+i=1: current=-2+1=-1 → max(-1,1)=1;  sum_array=1
+i=2: current=1-3=-2  → max(-2,-3)=-2; sum_array=1
+i=3: current=-2+4=2  → max(2,4)=4;   sum_array=4
+i=4: current=4-1=3   → max(3,-1)=3;  sum_array=4
+i=5: current=3+2=5   → max(5,2)=5;   sum_array=5
+i=6: current=5+1=6   → max(6,1)=6;   sum_array=6  ← answer
+```
+
+Mistake I made: 無——首次乾淨複習通過（rung 0，run 失敗 0 次）。
+
+---
+
 ## From: 198. House Robber (2026-07-06)
 
 Input: `[2, 7, 9, 3, 1]`
