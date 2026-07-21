@@ -152,6 +152,21 @@ Mistake I made: 初版多寫 `max_vowels = 0` 死碼（隨即被鏈式賦值覆�
 
 ---
 
+### From: 643. Maximum Average Subarray I (2026-07-21) — 複習
+
+Input: nums = [1, 12, -5, -6, 50, 3], k = 4
+Approach: 以 `max_sum = current = sum(nums[:k])` 同步初始化；從 index k 起滑動，每步 `current -= nums[i-k]`（移除左端）、`current += nums[i]`（加入右端），追蹤 max_sum，最後除以 k。
+Key insight: 移除的是左端 `nums[i - k]`，不是 `nums[i - 1]`——`i - k` 是當前窗口的左邊界，`i - 1` 是窗口內部的前一元素，兩者差距為 k-1 個位置。
+
+Trace (k=4, i=4): 窗口 indices [1,2,3,4]，離開的是左邊界 index 0（= i-k = 4-4 = 0），不是 index 3（i-1）。
+- i=4: current -= nums[0]=1, current += nums[4]=50 → 2-1+50=51, max=51
+- i=5: current -= nums[1]=12, current += nums[5]=3 → 51-12+3=42, max=51
+- 回傳 51/4 = 12.75 ✓
+
+Mistake I made: (1) max_sum 初始化為 0，在全負數陣列或首個窗口最佳時回傳錯誤；應改為 `max_sum = current`。(2) `nums[i-1]` 誤取窗口右邊界的前一元素，應為 `nums[i-k]` 取窗口左端；兩個 bug 均靠 /run 試錯 2 次修正。
+
+---
+
 ### From: 567. Permutation in String (2026-07-06)
 
 Input: s1 = "ab", s2 = "eidbaooo"

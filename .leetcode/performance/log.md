@@ -84,3 +84,4 @@
 | 2026-07-20 | 3. Longest Substring Without Repeating Characters | Sliding Window (Variable Size) + Hash Map | Passed (partial) | rung 0 / run_failures 3 | 初版混入母音過濾邏輯（copy from 其他題）；多次重置整個視窗而非縮左邊界；需多次引導才轉向 index-tracking 架構；`char_index[ch] >= left` 的必要性能正確解釋；O(n) 時間 / O(1) 空間正確答出 |
 | 2026-07-21 | 438. Find All Anagrams in a String | Sliding Window + Hash Table | Passed | 0 | 複習乾淨通過；Counter 比較 O(1) 的精確理由是字母表上限 26 key 而非 p 字元數；O(n) 時間 / O(1) 空間皆正確答出；del key 保持 Counter 乾淨的技巧已內化 |
 | 2026-07-21 | 347. Top K Frequent Elements | Hash Table + Bucket Sort | Passed (partial) | rung 4 | 從 Counter.most_common 出發；defaultdict 計頻架構正確；Bucket Sort 步驟需 4 層 hint 完成；if check 置於桶外層 loop（本題可接受但不嚴謹）；正確答出 O(n) 時間 / O(n) 空間；理解 O(n) 成立原因：頻率上限為 n |
+| 2026-07-21 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 / run_failures 2 | max_sum 初始化（0→current）及 i-1→i-k 兩個 bug 靠 /run 試錯 2 次修正；pattern 誤識為 Greedy，應為 Sliding Window (Fixed Size) |
