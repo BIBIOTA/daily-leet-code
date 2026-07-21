@@ -143,3 +143,18 @@ Trace（s="cbaebabacd", p="abc", p_len=3）：
 - i=6：移出 s[5]='a'，加入 s[8]='c' → {b:1,a:1,c:1} == p_count ✅ append(6)
 
 Mistake I made: (1) 時間複雜度誤答 O(n)——每輪重建 Counter 使實際為 O(n×m)；(2) 加入字元寫成 s[i] 而非 s[i+p_len-1]；(3) 迴圈跑到 range(s_len) 導致 IndexError，應為 range(1, s_len-p_len+1)；(4) 結構混亂：i=0 也嘗試滑動，導致初始視窗被雙重計數。
+
+---
+
+### From: 438. Find All Anagrams in a String (2026-07-21 複習)
+
+Input: s = "cbaebabacd", p = "abc"
+Approach: 固定大小視窗（len(p)），迴圈外先建初始視窗並比較，迴圈從 i=1 開始滑動：移除 s[i-1]（左端），加入 s[i+p_len-1]（右端），計數歸零時 del 該 key，再與 p_count 比對。
+Key insight: Counter 比較 `s_count == p_count` 是 O(26)=O(1)，因為兩個 Counter 的 key 數上限是字母表大小（26），不是 p 的字元數（key 也可能來自 s 的字元）。
+
+Trace（s="cbaebabacd", p="abc", p_len=3）：
+- i=0（迴圈外）：Counter("cba") == Counter("abc") ✅ append(0)
+- i=1：移出 s[0]='c'，加入 s[3]='e' → {b:1,a:1,e:1} ≠
+- i=6：移出 s[5]='a'，加入 s[8]='c' → {b:1,a:1,c:1} == p_count ✅ append(6)
+
+Mistake I made: 無（複習乾淨通過）。前次錯誤（s[i] 索引錯誤、range 越界、初始視窗重複計數）本次皆正確處理。
