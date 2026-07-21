@@ -14,3 +14,4 @@
 | Sliding Window (Variable Size) + Hash Map | 1 | 0 | 100% | 2026-07-20 | 🔴 Needs work |
 | Sliding Window + Hash Table | 12 | 6 | 50% | 2026-07-21 | 🟡 Developing |
 | Linear Scan | 2 | 1 | 50% | 2026-07-19 | 🟡 Developing |
+| Hash Table + Bucket Sort | 1 | 0 | 100% | 2026-07-21 | 🔴 Needs work |

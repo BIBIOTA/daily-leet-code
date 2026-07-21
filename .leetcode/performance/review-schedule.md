@@ -1,11 +1,11 @@
 ## 347. Top K Frequent Elements
 - slug: top-k-frequent-elements
-- pattern: Hash Table + Heap
-- last_result: Passed
-- current_interval_days: 12
-- last_reviewed: 2026-07-09
-- due_date: 2026-07-21
-- consecutive_passes: 2
+- pattern: Hash Table + Bucket Sort
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-21
+- due_date: 2026-07-22
+- consecutive_passes: 0
 
 ## 49. Group Anagrams
 - slug: group-anagrams
