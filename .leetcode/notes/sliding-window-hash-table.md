@@ -158,3 +158,19 @@ Trace（s="cbaebabacd", p="abc", p_len=3）：
 - i=6：移出 s[5]='a'，加入 s[8]='c' → {b:1,a:1,c:1} == p_count ✅ append(6)
 
 Mistake I made: 無（複習乾淨通過）。前次錯誤（s[i] 索引錯誤、range 越界、初始視窗重複計數）本次皆正確處理。
+
+---
+
+### From: 567. Permutation in String (2026-07-22 複習)
+
+Input: s1 = "ab", s2 = "eidbaooo"
+Approach: 固定大小視窗（len(s1)）；初始視窗 `Counter(s2[:s1_len])` 在迴圈外先比；主迴圈 `range(s1_len, s2_len)` 中：移出 `s2[i-s1_len]`，加入 `s2[i]`，計數歸零時 del 該 key，再與 s1_count 比對。
+Key insight: 加入/移出的必須是**字元**（`s2[i]`），不是**索引整數**（`i`）——Counter 的 key 是字元；`del` 當計數歸零是讓 Counter 比較正確的關鍵，`Counter({'a':0}) != Counter()` 會造成假陰性。
+
+Trace（s1="ab", s2="eidbaooo"）：
+- 初始 Counter("ei") ≠ Counter("ab")
+- i=2：移出 s[0]='e'，加入 s[2]='d' → {i,d} ≠
+- i=3：移出 s[1]='i'，加入 s[3]='b' → {d,b} ≠
+- i=4：移出 s[2]='d'，加入 s[4]='a' → {b,a} == {a,b} ✅ return True
+
+Mistake I made: `right = i + s1_len`（整數）——忘記對 s2 取索引，Counter 把整數當 key，比較永遠不等；改為 `right = s2[i]` 後修正。

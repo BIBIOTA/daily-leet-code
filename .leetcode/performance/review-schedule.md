@@ -90,12 +90,12 @@
 
 ## 567. Permutation in String
 - slug: permutation-in-string
-- pattern: Sliding Window + Hash Table
+- pattern: Sliding Window (Fixed Size) + Hash Table
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-20
-- due_date: 2026-07-22
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-22
+- due_date: 2026-07-26
+- consecutive_passes: 2
 
 ## Custom. Consonant Group Sum
 - slug: consonant-group-sum
