@@ -132,3 +132,12 @@
 - last_reviewed: 2026-07-21
 - due_date: 2026-07-23
 - consecutive_passes: 1
+
+## 153. Find Minimum in Rotated Sorted Array
+- slug: find-minimum-in-rotated-sorted-array
+- pattern: Binary Search
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-07-22
+- due_date: 2026-07-23
+- consecutive_passes: 0

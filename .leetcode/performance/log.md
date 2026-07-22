@@ -87,3 +87,4 @@
 | 2026-07-21 | 643. Maximum Average Subarray I | Sliding Window (Fixed Size) | Passed | rung 0 / run_failures 2 | max_sum 初始化（0→current）及 i-1→i-k 兩個 bug 靠 /run 試錯 2 次修正；pattern 誤識為 Greedy，應為 Sliding Window (Fixed Size) |
 | 2026-07-22 | 347. Top K Frequent Elements | Bucket Sort | Passed (partial) | rung 2 / run_failures 5 | IndexError 多次（buckets 建 n 個應為 n+1、range 起點越界）；`for num,count in nums_count` 忘記 .items()；`if in buckets[i]` 語法錯誤；run 失敗 5 次；理解多個 O(n) 步驟加總仍為 O(n) |
 | 2026-07-22 | 567. Permutation in String | Sliding Window (Fixed Size) + Hash Table | Passed | rung 0 | `right = i + s1_len` 整數 key bug（run 失敗 2 次後改為 `right = s2[i]`）；正確理解 `del` 保持 Counter 乾淨的必要性（移除 0-count key 才能讓比較正確）；O(n) 時間 / O(1) 空間皆正確答出 |
+| 2026-07-22 | 153. Find Minimum in Rotated Sorted Array | Binary Search | Passed (partial) | 4 | left=mid 導致無窮迴圈；if left==right 缺冒號；誤識 pattern 為 Two Pointers，應為 Binary Search；需 4 層 hint 才理解 left=mid+1 / right=mid 指針移動方式 |
