@@ -161,6 +161,21 @@ Mistake I made: 無（複習乾淨通過）。前次錯誤（s[i] 索引錯誤�
 
 ---
 
+### From: 438. Find All Anagrams in a String (2026-07-23 複習)
+
+Input: s = "cbaebabacd", p = "abc"
+Approach: 固定大小視窗（len(p)），迴圈外先建初始視窗並比較（i=0），主迴圈從 i=1 開始：移除 s[i-1]（左端），加入 s[i+p_len-1]（右端），計數歸零時 del 該 key，再與 p_count 比對並記錄 i。
+Key insight: 移出字元的索引是 `s[i-1]`（固定為前一位），而非 `s[i - p_len + 1]`——視窗從 i 開始時，離開的字元永遠是第 i-1 個字元。
+
+Trace（s="cbaebabacd", p="abc", p_len=3）：
+- 迴圈外：Counter("cba") == Counter("abc") ✅ append(0)
+- i=1：移出 s[0]='c'，加入 s[3]='e' → {b,a,e} ≠
+- i=6：移出 s[5]='a'，加入 s[8]='c' → {b,a,c} == p_count ✅ append(6)
+
+Mistake I made: (1) `from collection import Counter` typo（應為 `collections`）；(2) left 索引誤寫為 `s[i - p_len + 1]` 而非 `s[i-1]`，在 p_len > 2 時取到錯誤字元。
+
+---
+
 ### From: 567. Permutation in String (2026-07-22 複習)
 
 Input: s1 = "ab", s2 = "eidbaooo"

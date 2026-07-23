@@ -5,18 +5,23 @@ class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         # Examples:
         # Input: s = "cbaebabacd", p = "abc" -> Output: [0, 6]
-        #   "cba" (index 0) and "bac" (index 6) are anagrams of "abc"
+        #   s 中所有以索引 0、6 開頭、長度為 3 的子字串是 p 的易位詞
         #
         # Input: s = "abab", p = "ab" -> Output: [0, 1, 2]
-        #   "ab" (0), "ba" (1), "ab" (2) are all anagrams of "ab"
+        #   s 中所有以索引 0、1、2 開頭、長度為 2 的子字串是 p 的易位詞
         s_len = len(s)
         p_len = len(p)
-        p_count = Counter(p)
-        s_count = Counter(s[:p_len])
-        output = []
 
-        if p_count == s_count:
-            output.append(0)
+        results = []
+
+        if p_len > s_len:
+            return []
+
+        s_count = Counter(s[:p_len])
+        p_count = Counter(p)
+
+        if s_count == p_count:
+            results.append(0)
 
         for i in range(1, s_len - p_len + 1):
             left = s[i - 1]
@@ -26,5 +31,5 @@ class Solution:
             right = s[i + p_len - 1]
             s_count[right] += 1
             if s_count == p_count:
-                output.append(i)
-        return output
+                results.append(i)
+        return results

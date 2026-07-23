@@ -128,10 +128,10 @@
 - slug: find-all-anagrams-in-a-string
 - pattern: Sliding Window + Hash Table
 - last_result: Passed
-- current_interval_days: 2
-- last_reviewed: 2026-07-21
-- due_date: 2026-07-23
-- consecutive_passes: 1
+- current_interval_days: 4
+- last_reviewed: 2026-07-23
+- due_date: 2026-07-27
+- consecutive_passes: 2
 
 ## 153. Find Minimum in Rotated Sorted Array
 - slug: find-minimum-in-rotated-sorted-array
