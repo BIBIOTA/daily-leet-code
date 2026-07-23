@@ -60,3 +60,13 @@ Approach: `tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳
 Key insight: 排序後結果相同的字串就是 anagram，排序即 canonical form。
 
 Mistake I made: `defaultdict` 使用了但沒有 `from collections import defaultdict`，第一次 /run 即 NameError。pattern 只答 Hash Table，應完整答 Hash Table + Canonical Form。
+
+---
+
+### From: 49. Group Anagrams (2026-07-23) — 複習
+
+Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+Approach: `tuple(sorted(word))` 作為 key，`defaultdict(list)` 分組，回傳 `list(group.values())`。
+Key insight: `sorted()` 回傳 `list`，list 不可 hash；必須轉為 `tuple` 才能作為 dict key。
+
+Mistake I made: 第一版寫 `key = sorted(word)`（list），觸發 `TypeError: cannot use 'list' as a dict key`；改為 `tuple(sorted(word))` 即修正。複雜度與頻率 tuple 優化皆正確答出。
