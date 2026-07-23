@@ -3,8 +3,8 @@
 - pattern: Hash Table + Bucket Sort
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-22
-- due_date: 2026-07-23
+- last_reviewed: 2026-07-23
+- due_date: 2026-07-24
 - consecutive_passes: 0
 
 ## 49. Group Anagrams

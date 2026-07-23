@@ -29,3 +29,21 @@ Mistake I made:
 - `if in buckets[i]:` → 語法錯誤，應為 `if buckets[i]:`
 - `range(len(buckets), 0, -1)` → 起點 len(buckets) 越界，應為 `range(len(buckets)-1, 0, -1)`
 - `buckets = [[] for _ in nums]` → 只建 n 個桶，應為 `range(len(nums) + 1)` 才有索引 0~n
+
+### From: 347. Top K Frequent Elements (2026-07-23) — Review
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter 統計頻率 → n+1 個桶（index = 頻率）→ 從高頻桶往低頻掃，累積 k 個後立即 `return results`。
+Key insight: `break` 只跳出內層 `for num in buckets[i]`，外層 `for i in range(...)` 仍繼續；改用 `return results` 才能一次終止兩層迴圈。
+
+Trace (nums = [1,1,1,2,2,3], k=2 — the break-only bug):
+- i=3: append 1, len=1
+- i=2: append 2, len=2, break inner → 外層繼續
+- i=1: append 3! len=3 ≠ k → return [1, 2, 3]  ✗
+- 改為 `if len(results)==k: return results` → i=2 直接 return [1, 2]  ✓
+
+Mistake I made:
+- `range(len(nums)) + 1` → range 物件不能 +1，應為 `range(len(nums) + 1)`
+- `range(len(buckets), 0, -1)` → 起點再次越界，應為 `range(len(buckets)-1, 0, -1)`
+- `return nums[k]` / `return nums[k-1]` → 回傳單一 int 而非 list；當 len(nums)==k 時應 `return list(nums)` 或直接讓主邏輯處理
+- `else: break` → 只跳內層，改 `if len==k: return results` 才能雙層同時終止

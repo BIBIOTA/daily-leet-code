@@ -1,7 +1,6 @@
 from typing import List
 from collections import Counter
 
-
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         # Examples:
@@ -9,12 +8,12 @@ class Solution:
         # Input: nums = [1], k = 1             →  Output: [1]
         nums_count = Counter(nums)
         buckets = [[] for _ in range(len(nums) + 1)]
-        result = []
+        results = []
         for num, count in nums_count.items():
             buckets[count].append(num)
         for i in range(len(buckets) - 1, 0, -1):
-            if buckets[i]:
-                for num in buckets[i]:
-                    result.append(num)
-                if len(result) == k:
-                    return result
+            for num in buckets[i]:
+                results.append(num)
+                if len(results) == k:
+                    return results
+        return results
