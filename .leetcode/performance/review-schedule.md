@@ -117,11 +117,11 @@
 
 ## 3. Longest Substring Without Repeating Characters
 - slug: longest-substring-without-repeating-characters
-- pattern: Sliding Window (Variable Size) + Hash Map
+- pattern: Sliding Window + Hash Set
 - last_result: Passed (partial)
-- current_interval_days: 3
-- last_reviewed: 2026-07-20
-- due_date: 2026-07-23
+- current_interval_days: 1
+- last_reviewed: 2026-07-23
+- due_date: 2026-07-24
 - consecutive_passes: 0
 
 ## 438. Find All Anagrams in a String
