@@ -47,3 +47,21 @@ Mistake I made:
 - `range(len(buckets), 0, -1)` → 起點再次越界，應為 `range(len(buckets)-1, 0, -1)`
 - `return nums[k]` / `return nums[k-1]` → 回傳單一 int 而非 list；當 len(nums)==k 時應 `return list(nums)` 或直接讓主邏輯處理
 - `else: break` → 只跳內層，改 `if len==k: return results` 才能雙層同時終止
+
+### From: 347. Top K Frequent Elements (2026-07-24) — Review
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter 統計頻率 → n+1 個桶（index = 頻率）→ 從高頻桶往低頻掃，累積 k 個後立即 return results。
+Key insight: 頻率上限為 n（不是輸入值的範圍），所以頻率可直接當 index；這是 O(n) 的前提。直接迭代 Counter 只給 key，需 `.items()` 才能同時拿 (key, value)。
+
+Trace (nums = [1,1,1,2,2,3], k=2):
+1. nums_count = {1:3, 2:2, 3:1}
+2. buckets 長度 7（= len(nums)+1 = 6+1）
+3. buckets[3]=[1], buckets[2]=[2], buckets[1]=[3]
+4. i=6,5,4: 空。i=3: append 1 → [1]。i=2: append 2 → [1,2]，len==k → return [1,2]
+
+Mistake I made:
+- `from collection import Counter`（連兩次）→ 模組名是 `collections`（有 s）
+- `range(nums + 1)` → nums 是 list，不能加 int；應為 `range(len(nums) + 1)`
+- `for num, count in nums_count` → 需改為 `nums_count.items()` 才能解包 (key, value)
+- 最後一行 `return results`（迴圈外）是 dead code：題目保證 k ≤ 唯一元素數，inner return 一定先觸發
