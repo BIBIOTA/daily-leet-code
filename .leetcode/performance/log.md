@@ -94,3 +94,4 @@
 | 2026-07-23 | 49. Group Anagrams | Hash Table + Canonical Form | Passed | rung 0 | `sorted(word)` 回傳 list 不可 hash，改為 `tuple(sorted(word))` 後全部通過；正確答出 O(n·k log k) 時間 / O(n·k) 空間；理解字元計數 tuple 可優化至 O(n·k)；pattern 正確識別為 Hash Table + Canonical Form |
 | 2026-07-23 | 438. Find All Anagrams in a String | Sliding Window + Hash Table | Passed | rung 0 | import typo（collection→collections）及 `left = s[i - p_len + 1]` 索引錯誤（應為 `s[i-1]`）；兩個 bug 皆自行發現並修正；del key 技巧與 Counter 比較機制已內化 |
 | 2026-07-24 | 347. Top K Frequent Elements | Hash Table + Bucket Sort | Passed (partial) | rung 1 / run_failures 5 | `collection` typo 兩次；`range(nums+1)` 漏 `len()`；`.items()` 忘記；run 失敗 5 次；理解 bucket sort 線性原因為頻率上限 n；最後一行 `return results` 是 dead code |
+| 2026-07-24 | 198. House Robber | Dynamic Programming (1D DP) | Passed (partial) | rung 1 / run_failures 3 | 代入順序錯誤（先 `prev_2=prev_1` 再計算導致 prev_2 失去舊值）；用 curr 暫存後解決；run 失敗 3 次；O(n) 時間 / O(1) 空間正確答出；理解圓形排列（LC 213）需跑兩次線性子問題取最大值 |

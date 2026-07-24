@@ -97,3 +97,22 @@ Approach: 滾動兩個變數，先 `prev_2 = prev_1`（保存舊值），再 `pr
 Key insight: update 順序是唯一雷點——若先更新 prev_1 再 shift prev_2，prev_2 每輪都等於最新的 prev_1，「跳一間」的距離消失，答案變成全部加總。想避免順序 bug 可改用 tuple unpacking：`prev, curr = curr, max(curr, num + prev)`。
 
 Mistake I made: 第一次把 `prev_1 = max(curr, prev_2)` 放在 `prev_2 = prev_1` 之前，一次 run 失敗後自行識別並修正順序。
+
+---
+
+### From: 198. House Robber — Review (2026-07-24)
+
+Input: nums = [1, 2, 3, 1]
+Approach: 先算 `curr = nums[i] + prev_2`，再 `prev_2 = prev_1`，最後 `prev_1 = max(prev_1, curr)`——三行順序不能對調。
+Key insight: `prev_2 = prev_1` 必須在 `prev_1` 更新**之後**執行，才能讓 prev_2 持有舊的 prev_1；反過來先 shift 再計算，prev_2 與 prev_1 相等，「跳一間」的距離消失。
+
+⚠️ 第三次犯同類型錯誤（前兩次：2026-07-08 的 if/else 分支錯誤、2026-07-16 的更新順序對調）。建議預設用 tuple unpacking：
+```python
+prev_2, prev_1 = 0, 0
+for num in nums:
+    prev_2, prev_1 = prev_1, max(prev_1, prev_2 + num)
+return prev_1
+```
+Python 右側整體先求值，天然防止 shift 順序 bug。
+
+Mistake I made: 連續三次嘗試都是代入順序錯誤——先執行 `prev_2 = prev_1` 後，`prev_2` 已等於最新 `prev_1`，再用 `prev_2` 計算等同把相鄰兩間同時搶。
