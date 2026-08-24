@@ -6,8 +6,17 @@
     },
     "editor.suggestOnTriggerCharacters": false,
     "editor.acceptSuggestionOnEnter": "off",
+    "editor.suggest.enabled": false,
+    "editor.inlineSuggest.enabled": false,
+    "editor.parameterHints.enabled": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.snippetSuggestions": "none",
+    "editor.tabCompletion": "off",
     "github.copilot.editor.enableAutoCompletions": false,
     "github.copilot.inlineSuggest.enable": false,
+    "github.copilot.enable": {
+        "*": false
+    },
     "python.languageServer": "None",
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000
