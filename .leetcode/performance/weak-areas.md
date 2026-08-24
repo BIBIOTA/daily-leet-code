@@ -12,7 +12,7 @@
 | String + Counting | 4 | 2 | 50% | 2026-07-17 | 🟡 Developing |
 | Sliding Window (Counting) | 3 | 0 | 100% | 2026-07-19 | 🔴 Needs work |
 | Sliding Window + Hash Set | 2 | 0 | 100% | 2026-07-23 | 🔴 Needs work |
-| Sliding Window + Hash Table | 14 | 8 | 43% | 2026-07-23 | 🟡 Developing |
+| Sliding Window + Hash Table | 15 | 8 | 47% | 2026-08-25 | 🟡 Developing |
 | Linear Scan | 2 | 1 | 50% | 2026-07-19 | 🟡 Developing |
 | Hash Table + Bucket Sort | 4 | 0 | 100% | 2026-07-24 | 🔴 Needs work |
 | Binary Search | 2 | 0 | 100% | 2026-07-23 | 🔴 Needs work |

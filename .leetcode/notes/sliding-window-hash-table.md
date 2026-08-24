@@ -189,3 +189,20 @@ Trace（s1="ab", s2="eidbaooo"）：
 - i=4：移出 s[2]='d'，加入 s[4]='a' → {b,a} == {a,b} ✅ return True
 
 Mistake I made: `right = i + s1_len`（整數）——忘記對 s2 取索引，Counter 把整數當 key，比較永遠不等；改為 `right = s2[i]` 後修正。
+
+---
+
+### From: 3. Longest Substring Without Repeating Characters (2026-08-25 複習)
+
+Input: s = "abcabcbb"
+Approach: 兩指針 left/right 掃描一遍，用一個 dict `last_seen` 記錄每個字元「最後一次出現的 index」。走到 `s[right]` 時，若該字元先前出現過**而且**那個位置還在目前窗口內（`last_seen[c] >= left`），就把 `left` 跳到 `last_seen[c] + 1`；否則不動。每輪更新 `last_seen[c] = right`，並用 `right - left + 1` 更新答案。
+Key insight: 遇到重複字元時不能把整個窗口丟掉重來（會誤刪還在窗口內、未過期的字元），只需要把 `left` 精準推到「剛好越過那次重複」的位置。判斷條件必須是 `last_seen[c] >= left`，不能只判斷 `c in last_seen`——`"abba"` 這個案例能戳破後者：走到最後的 `'a'` 時，它上次出現的位置（index 0）早就被 `left`（因 `'b'` 重複被推到 index 2）甩在窗口外了，所以不該觸發收縮，正確窗口停在 `"ba"`。
+
+Trace（s="abba"）：
+- right=0 'a'：不在 last_seen → last_seen['a']=0，max_len=1
+- right=1 'b'：不在 last_seen → last_seen['b']=1，max_len=2
+- right=2 'b'：last_seen['b']=1 >= left(0) → left=2；last_seen['b']=2，max_len=max(2, 1)=2
+- right=3 'a'：last_seen['a']=0，但 0 >= left(2) 為 False → 不收縮；last_seen['a']=3，max_len=max(2, 3-2+1)=2
+- 回傳 2 ✅（窗口 "ba"）
+
+Mistake I made: 前兩版把整個窗口重置為單一字元（`strs = s[i]`）而非收縮左邊界，導致 `"dvdf"` 這類非相鄰重複算錯；`s[0]` 在檢查空字串之前就存取，造成 `IndexError`；改用 `last_seen` dict 後又把 `and` 誤寫成 `&`（bitwise），導致任何新字元第一次出現就 `KeyError`。空間複雜度更精確的說法是 `O(min(n, Σ))`，不只是 `O(n)`。
