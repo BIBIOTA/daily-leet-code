@@ -55,3 +55,27 @@ Mistake I made（複習仍重蹈的坑）:
 - `while` 迴圈內縮的是右端 `ch`，應縮左端 `word[start]`。
 - 只用一個左指標，缺少 `left`（段起點）與 `start`（可收縮指標）兩者分離的概念。
 - 無法解釋「start 為何不後退」：答案就是程式碼中 start 只有 `start += 1`，沒有任何 `start -= 1`，天然單調遞增，攤銷 O(n)。
+
+---
+
+### From: 424. Longest Repeating Character Replacement (2026-08-26)
+
+Input: `s = "ABAB"`, `k = 2` → `4`；`s = "AABABBA"`, `k = 1` → `4`
+Approach: 用 `right` 擴張視窗，`count[s[right]] += 1` 更新視窗內字母頻率；同時維護 `max_freq` = 目前視窗曾看過的最大單一字母次數。若 `視窗長度 - max_freq > k`（代表要換成同一字母所需次數超出預算），就把 `left` 往右收一格（只收一格，不是整段重置）。答案是過程中出現過的最大視窗長度。
+Key insight: `max_freq` 不需要在 `left` 右移時精確地跟著下降——它允許「過期」（曾經算過的最大值，即使那個字母後來被擠出視窗也不修正）。這個不精確永遠是保守方向：只會讓收縮條件更容易觸發，不會讓視窗被誤判為合法。因此視窗長度整體只增不減，最終長度就是正確答案。
+
+Trace（`s = "ABCDE"`, `k = 1`，全部字母不同，用來驗證「視窗只增不減」）:
+- right=0(A): count={A:1}, max_freq=1, window=1, 1-1=0 ≤1 → 不收縮, max_window=1
+- right=1(B): count={A:1,B:1}, max_freq=1, window=2, 2-1=1 ≤1 → 不收縮, max_window=2
+- right=2(C): window=3, 3-1=2>1 → 收縮 count[A]-=1, left=1, 視窗長度仍=2
+- right=3(D): window=3, 3-1=2>1 → 收縮 count[B]-=1, left=2, 視窗長度仍=2
+- right=4(E): window=3, 3-1=2>1 → 收縮 count[C]-=1, left=3, 視窗長度仍=2
+- 最終 max_window=2（left 一路右移，但視窗長度從未真的縮小過，只是跟著 right 平移）
+
+Mistake I made:
+- 一開始用「整個字串」的全域字元次數去算，沒意識到題目要找的是**連續子字串**內的置換預算，跟全域出現次數無關。
+- 改寫成雙指標後，用固定字元（`s[left]` 或 `s[right-1]`）逐一比對是否相同，而不是統計「視窗內每個字母各出現幾次」——用轉折次數/相鄰比對取代真正的頻率統計，邏輯上完全是另一件事。
+- `count = [[0] for i in range(26)]` 誤把 list 索引用字元當 key（`count[s[right]]`），且該寫法建出的元素是 `[0]`（list）不是整數 0；改用 `defaultdict(int)` 後又忘記 `from collections import defaultdict`，造成 NameError。
+- 完成後留下 `from typing import List`、`from collections import Counter` 兩個沒用到的 import，屬於死代碼未清理。
+
+相關題目: 3 (Longest Substring Without Repeating Characters)、567 (Permutation in String)、438 (Find All Anagrams in a String) —— 都是滑動窗口 + 頻率統計的變體，但本題的「只增不減視窗、允許 max_freq 過期」是比較獨特的技巧，其他題大多需要精確收縮視窗。
