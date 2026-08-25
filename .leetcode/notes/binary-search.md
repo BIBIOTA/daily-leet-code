@@ -41,3 +41,15 @@ Approach: 比較 nums[mid] 與 nums[right]。若 nums[mid] > nums[right]，斷�
 Key insight: nums[right] 是穩定錨點——最小值永遠 ≤ nums[right]，所以用它比較能可靠判斷 mid 落在哪段。改用 nums[left] 在陣列未旋轉時會把最小值排除在搜尋範圍外。
 
 Mistake I made: mid 連錯三次（nums[right]//2 → right//left 除零 → (right-left)//2 偏移量，正確應為 (left+right)//2）；指標移動用 +=1/-=1 而非跳到 mid/mid+1；return right 回傳索引應改為 nums[right]。
+
+---
+
+### From: 153. Find Minimum in Rotated Sorted Array (2026-08-26) [Review]
+
+Input: nums = [4, 5, 6, 7, 0, 1, 2]
+Approach: left/right/mid 框架與比較邏輯（nums[mid] vs nums[right]）都已內化寫對；唯一漏洞是最後 `return left` 忘記轉成 `return nums[left]`，回傳了索引而非數值。
+Key insight: 迴圈跑完後 `left == right` 只是「答案的位置」，別忘了最後一步要用這個索引去陣列裡取值。
+
+Mistake I made: `return left` 應為 `return nums[left]`（靠 /run 一次失敗抓出）。
+
+Variant note（154 題重複元素）：若允許重複，`nums[mid] == nums[right]` 時無法判斷最小值在哪一半，需加 `elif nums[mid] == nums[right]: right -= 1` 安全縮小範圍，最壞情況退化為 O(n)。當時誤以為現有程式碼（沒有這個 elif 分支）已經能正確處理重複元素，用反例 `[1,1,1,0,1]`（現有程式碼回傳 1，正解應為 0）才釐清：`==` 情況目前是走進 `right = mid` 的 else 分支，會誤刪掉可能藏最小值的區域。

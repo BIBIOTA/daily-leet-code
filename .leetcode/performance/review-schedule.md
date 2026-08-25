@@ -138,6 +138,6 @@
 - pattern: Binary Search
 - last_result: Passed (partial)
 - current_interval_days: 1
-- last_reviewed: 2026-07-23
-- due_date: 2026-07-24
+- last_reviewed: 2026-08-26
+- due_date: 2026-08-27
 - consecutive_passes: 0
