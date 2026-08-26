@@ -91,3 +91,13 @@ Key insight: most_common(k) 底層是 `heapq.nlargest(k, ...)`，會遍歷「所
 - 所以是 u·log k，不是 k·log k；例如 n=100000 全相異、k=3 → heap 操作跑 100000 次而非 3 次
 
 Mistake I made: 時間複雜度誤答 O(n + k log k)，正解 O(n + u log k)；誤以為 heap 操作只跑 k 次；pattern 只答 Hash Table，漏了 Heap / Top-K selection 這一半（統計用 hash、取前 k 用 heap 或 bucket sort）
+
+---
+
+### From: 347. Top K Frequent Elements（2026-08-27 複習）
+
+Input: nums = [1, 1, 1, 2, 2, 3], k = 2
+Approach: Counter(nums).most_common(k) 取前 k 高頻，`[num for num, _ in frequent_k]` 解構 tuple 取數字
+Key insight: most_common(k) 回傳的是 list of tuples，只能用 for-unpack 解構，不能呼叫 `.items()`（那是 dict 專屬方法）
+
+Mistake I made: 對 most_common(k) 的回傳值呼叫 `.items()`（AttributeError: 'list' object has no attribute 'items'），run 失敗 1 次後改為直接對 list of tuples 做 list comprehension 解構修正；正確答出 O(n log k) 時間 / O(n) 空間；追問「如何做到真正 O(n)」時正確答出 Bucket Sort（頻率當桶 index，因為頻率上限就是 n，不需排序）
