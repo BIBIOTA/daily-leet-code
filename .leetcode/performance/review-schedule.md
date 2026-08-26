@@ -150,3 +150,12 @@
 - last_reviewed: 2026-08-26
 - due_date: 2026-08-27
 - consecutive_passes: 0
+
+## 219. Contains Duplicate II
+- slug: contains-duplicate-ii
+- pattern: Sliding Window (Fixed Size) + Hash Set
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-08-27
+- due_date: 2026-08-28
+- consecutive_passes: 0
