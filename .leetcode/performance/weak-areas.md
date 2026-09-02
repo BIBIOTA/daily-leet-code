@@ -16,3 +16,4 @@
 | Linear Scan | 3 | 1 | 67% | 2026-09-03 | 🔴 Needs work |
 | Hash Table + Bucket Sort | 4 | 0 | 100% | 2026-07-24 | 🔴 Needs work |
 | Binary Search | 3 | 0 | 100% | 2026-08-26 | 🔴 Needs work |
+| Two Pointers | 1 | 0 | 100% | 2026-09-03 | 🔴 Needs work |

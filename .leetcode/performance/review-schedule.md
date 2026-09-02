@@ -159,3 +159,12 @@
 - last_reviewed: 2026-08-27
 - due_date: 2026-08-28
 - consecutive_passes: 0
+
+## 11. Container With Most Water
+- slug: container-with-most-water
+- pattern: Two Pointers
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-09-03
+- due_date: 2026-09-04
+- consecutive_passes: 0
