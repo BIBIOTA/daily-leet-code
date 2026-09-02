@@ -109,6 +109,27 @@ Mistake I made: 無——首次乾淨複習通過（rung 0，run 失敗 0 次）
 
 ---
 
+## From: 53. Maximum Subarray (2026-09-03 複習)
+
+Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+Approach: 初始化 `current = max_result = nums[0]`，從第二個元素開始掃描。對每個 `num`，以 `current = max(num, current + num)` 決定延伸現有子陣列或從此元素重新開始，再以 `max_result` 保留全域最佳值。
+Key insight: 當前綴和為負時，帶著它加入 `num` 必定不如只從 `num` 開始；因此只需比較這兩種狀態，不需要 hash table。
+
+Trace:
+```
+current = max_result = -2
+num=1:  current=max(1, -2+1)=1;  max_result=1
+num=-3: current=max(-3, 1-3)=-2; max_result=1
+num=4:  current=max(4, -2+4)=4;  max_result=4
+num=-1: current=max(-1, 4-1)=3;  max_result=4
+num=2:  current=max(2, 3+2)=5;   max_result=5
+num=1:  current=max(1, 5+1)=6;   max_result=6
+```
+
+Mistake I made: 初版以 `0` 初始化，會讓全負數陣列回傳錯誤值；接著曾只迭代 `nums[:1]`，並一度把 `+=` 放進 `max()` 的參數導致語法錯誤。最後也把模式誤認為 Hash Table。
+
+---
+
 ## From: 198. House Robber (2026-07-06)
 
 Input: `[2, 7, 9, 3, 1]`

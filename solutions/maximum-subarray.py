@@ -3,18 +3,17 @@ from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        sum_array = current = nums[0]
-        for i in range(1, len(nums)):
-            current = max(current + nums[i], nums[i])
-            sum_array = max(current, sum_array)
-        return sum_array
+        if len(nums) == 0:
+            return 0
 
-# Examples:
-# Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-# Output: 6  (subarray [4, -1, 2, 1])
+        max_result = current = nums[0]
 
-# Input: nums = [1]
-# Output: 1
+        for num in nums[1:]:
+            current = max(num, current + num)
+            max_result = max(max_result, current)
+        return max_result
 
-# Input: nums = [5, 4, -1, 7, 8]
-# Output: 23  (entire array)
+# Examples (paraphrased):
+# [-2, 1, -3, 4, -1, 2, 1, -5, 4] -> 6
+# [1] -> 1
+# [5, 4, -1, 7, 8] -> 23
