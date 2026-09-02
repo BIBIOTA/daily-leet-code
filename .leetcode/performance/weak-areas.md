@@ -13,6 +13,6 @@
 | Sliding Window (Counting) | 4 | 0 | 100% | 2026-08-26 | 🔴 Needs work |
 | Sliding Window + Hash Set | 3 | 0 | 100% | 2026-08-27 | 🔴 Needs work |
 | Sliding Window + Hash Table | 15 | 8 | 47% | 2026-08-25 | 🟡 Developing |
-| Linear Scan | 2 | 1 | 50% | 2026-07-19 | 🟡 Developing |
+| Linear Scan | 3 | 1 | 67% | 2026-09-03 | 🔴 Needs work |
 | Hash Table + Bucket Sort | 4 | 0 | 100% | 2026-07-24 | 🔴 Needs work |
 | Binary Search | 3 | 0 | 100% | 2026-08-26 | 🔴 Needs work |

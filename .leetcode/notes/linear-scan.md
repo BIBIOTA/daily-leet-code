@@ -36,3 +36,17 @@ Approach: 單次遍歷，`group_sum` 累積目前子音群組，遇母音清零�
 Key insight: 在迴圈內每個子音都更新 `max_sum`（而非只在群組結束才更新），自動處理字串以子音結尾的 edge case，省去迴圈後補算。
 
 Mistake I made: `vowels` 拼寫漏大寫應為 `VOWELS`（NameError）；`ord(ch) + diff` 方向錯誤應為 `ord(ch) - diff`（diff=16）；run 失敗 2 次。
+
+---
+
+### From: Custom. Consonant Group Sum — Review (2026-09-03)
+
+Input: `"letter"` → `200`
+
+Approach: 單次掃描字串；子音時把字元分數加到目前群組，並立即更新歷史最大值；母音時將目前群組歸零。
+
+Key insight: 每次加入子音後立刻比較最大值，就不必在迴圈結束時特別處理以子音結尾的群組。
+
+Trace: `"letter"` 中 `l` 形成 92；遇到 `e` 歸零；兩個 `t` 累積為 200；後續 `r` 為 98，因此最大值維持 200。
+
+Mistake I made: `ord(ch) + diff` 應為減去 `diff`；曾把 `result += ...` 寫在 `max()` 的參數中，Python 不允許在運算式內使用 `+=`。
