@@ -91,11 +91,11 @@
 ## 567. Permutation in String
 - slug: permutation-in-string
 - pattern: Sliding Window (Fixed Size) + Hash Table
-- last_result: Passed
-- current_interval_days: 4
-- last_reviewed: 2026-07-22
-- due_date: 2026-07-26
-- consecutive_passes: 2
+- last_result: Passed (partial)
+- current_interval_days: 1
+- last_reviewed: 2026-09-04
+- due_date: 2026-09-05
+- consecutive_passes: 0
 
 ## Custom. Consonant Group Sum
 - slug: consonant-group-sum
