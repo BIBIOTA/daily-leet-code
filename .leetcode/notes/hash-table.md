@@ -302,3 +302,18 @@ index=1, num=7, diff=2 → {2:0} → 找到！→ return [0, 1]
 Mistake I made: (none — 零提示零試錯，乾淨複習通過)
 
 進階：陣列已排序時改用 Two Pointers（left=0, right=n-1），時間仍 O(n)，空間降至 O(1)。
+
+---
+
+### From: 1. Two Sum (2026-09-04)
+
+Input: `nums = [2, 7, 11, 15]`, `target = 9`
+Approach: 一次走訪陣列，以 dict 儲存已看過的「數字 → 索引」。每次先查 `target - nums[i]` 是否已出現，找到就回傳兩個索引，否則才記錄目前數字。
+Key insight: 先查後存可確保查到的 complement 必然來自較早的索引，因此不會重複使用目前元素。
+
+```
+i=0, num=2, diff=7  → {}       → 未命中，記錄 {2: 0}
+i=1, num=7, diff=2  → {2: 0}   → 命中，回傳 [0, 1]
+```
+
+Mistake I made: 無；本次零提示、零次測試失敗完成。

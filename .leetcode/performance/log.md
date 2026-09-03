@@ -103,3 +103,4 @@
 | 2026-09-03 | Custom. Consonant Group Sum | Linear Scan | Passed (partial) | rung 4 / run_failures 2 | `ord(ch) + diff` 的計分方向錯誤；初版漏處理子音結尾群組，後改為每個子音即時更新最大值；一度把 `+=` 寫入 `max()` 參數造成 SyntaxError；時間 O(n)／空間 O(1) 正確，pattern 由 Sliding Window 校正為 Linear Scan。|
 | 2026-09-03 | 53. Maximum Subarray | Dynamic Programming (Kadane's Algorithm) | Passed (partial) | rung 0 / run_failures 4 | 前三次 /run 依序暴露了初始化為 0、只迭代第一個元素，以及語法錯誤；最後以 `current = max(num, current + num)` 正確處理延伸與重置。時間 O(n)／空間 O(1) 正確；pattern 一度誤答 Hash Table，已校正為 Kadane's DP。|
 | 2026-09-03 | 11. Container With Most Water | Two Pointers | Passed (partial) | rung 4 / run_failures 6 | 先將高度平方、寬度少算 1，後改為雙指標；一度使用 `×` 而非 Python 的 `*`，並回傳已改名的 `max_count`。最終正確答出 O(n) 時間／O(1) 空間。|
+| 2026-09-04 | 1. Two Sum | Hash Table | Passed | rung 0 / run_failures 0 | 乾淨複習通過；正確答出 O(n) 時間／O(n) 空間，並識別 Hash Table。用時約 1 小時 20 分。|
